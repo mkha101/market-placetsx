@@ -7,6 +7,7 @@ import { Search } from "./Search";
 import { UserMenu } from "./UserMenu";
 import { Navigation } from "./Navigation";
 import router, { useRouter } from "next/router";
+import { List } from "./List";
 
 export default function Navbar() {
   const handleRefresh = () => {
@@ -24,6 +25,8 @@ export default function Navbar() {
               </Link>
             </div>
             <Search />
+            <List />
+
             <div className="flex flex-row items-center justify-between gap-3 md:gap-0">
               <Navigation />
               <UserMenu />

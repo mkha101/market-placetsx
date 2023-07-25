@@ -2,8 +2,9 @@
 
 import React, { useCallback, useState } from "react";
 import { AiOutlineMenu } from "react-icons/ai";
-import { UserButton, useUser } from "@clerk/nextjs";
+import { UserButton, useUser, currentUser } from "@clerk/nextjs";
 import MenuItem from "./MenuItem";
+
 import Link from "next/link";
 
 export const UserMenu = () => {
@@ -16,10 +17,10 @@ export const UserMenu = () => {
 
   return (
     <div className="relative">
-      <div className="flex flex-row items-center gap-2 ">
+      <div className="flex flex-row items-center gap-5 ">
         {user.isSignedIn ? (
           <>
-            <div className="hidden md:block text-sm font-semibold py-3 px-4 rounded-full hover:bg-neutral-100 transition ease-in-out cursor-pointer">
+            <div className="hidden md:block ml-3 text-sm font-semibold py-3 px-4 rounded-full hover:bg-neutral-100 transition ease-in-out cursor-pointer">
               Hello User{" "}
             </div>
             <UserButton />
