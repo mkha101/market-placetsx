@@ -59,8 +59,9 @@ export const UserMenu = () => {
         >
           <div className="flex flex-col cursor-pointer">
             <>
-              <MenuItem onClick={() => {}} label="Login" />
-              <MenuItem onClick={() => {}} label="Sign Up" />
+              <MenuItem onClick={() => {}} label="Cart" />
+              <MenuItem onClick={() => {}} label="Listings" />
+              <MenuItem onClick={() => {}} label="Messages" />
             </>
           </div>
         </div>

@@ -34,7 +34,7 @@ export default function Navbar() {
           </div>
         </Container>
       </div>
-      <div className="py-3 border-b-[1px]">
+      <div className="py-3 hidden sm:block border-b-[1px]">
         <Container>
           <div className="flex flex-row justify-start gap-10 items-center">
             <div className="text-gray-500 text-sm">Categories</div>
