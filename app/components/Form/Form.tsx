@@ -1,0 +1,129 @@
+import {
+  Textarea,
+  Select,
+  NumberInput,
+  NumberInputField,
+  NumberInputStepper,
+  NumberIncrementStepper,
+  NumberDecrementStepper,
+  useToast,
+} from "@chakra-ui/react";
+import { format } from "path";
+import { parse } from "postcss";
+import React from "react";
+
+export const Form = ({
+  type,
+  listings,
+  setListings,
+  submitting,
+  handleSubmit,
+}: {
+  type: any;
+  listings: any;
+  setListings: any;
+  submitting: any;
+  handleSubmit: any;
+}) => {
+  const format = (val: string) => `$` + val;
+  const parse = (val: string) => val.replace(/^\$/, "");
+
+  const [value, setValue] = React.useState("");
+  const toast = useToast();
+
+  return (
+    <div className="w-full max-w-screen">
+      <div className="flex h-[80vh] mt-20 gap-28 flex-col justify-start items-center">
+        {" "}
+        <div className="">
+          <h1 className="text-4xl text-[#FF6445] font-bold">Create Listing</h1>
+        </div>
+        <div className="flex  flex-col items-center justify-center">
+          {" "}
+          <form
+            onSubmit={handleSubmit}
+            className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
+          >
+            <div className="mb-4">
+              <label
+                className="block text-gray-700 text-sm font-bold mb-2"
+                htmlFor="title"
+              >
+                Title
+              </label>
+              <input
+                className="shadow border-[#FF6445] appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="title"
+                type="text"
+                placeholder=""
+                onChange={(e) =>
+                  setListings({ ...listings, title: e.target.value })
+                }
+                value={listings.title}
+              ></input>
+            </div>
+            <div>
+              <label
+                className="block text-gray-700 text-sm font-bold mb-2"
+                htmlFor="description"
+              >
+                Description
+              </label>
+              <Textarea
+                className="mb-2"
+                id="description"
+                value={listings.description}
+                onChange={(e) =>
+                  setListings({ ...listings, description: e.target.value })
+                }
+                borderColor="tomato"
+                focusBorderColor=""
+                typeof="text"
+                placeholder=""
+                size="sm"
+                resize={"none"}
+              />
+            </div>
+            <div className="mb-6">
+              <label
+                className="block text-gray-700 text-sm font-bold mb-2"
+                htmlFor="category"
+              >
+                Category
+              </label>
+
+              <Select
+                bg="white"
+                borderColor="tomato"
+                color="tomato"
+                placeholder=""
+              >
+                <option value="option1">Clothing</option>
+                <option value="option2">Shoes</option>
+                <option value="option3">Technology</option>
+              </Select>
+            </div>
+            <div className="flex items-center justify-center">
+              <button
+                type="submit"
+                className="bg-[#FF6445] hover:bg-orange-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                onClick={() =>
+                  toast({
+                    title: "Listing created.",
+                    description: "Your listing is now public.",
+                    status: "success",
+                    duration: 9000,
+                    isClosable: true,
+                    colorScheme: "orange",
+                  })
+                }
+              >
+                Create
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  );
+};

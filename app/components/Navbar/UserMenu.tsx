@@ -37,7 +37,7 @@ export const UserMenu = () => {
         )}
         <div
           onClick={toggleOpen}
-          className="p-4 bg-white md:py-1 md:px-2 border-[1px] border-neutral-200 flex flex-row items-center gap-3 rounded-full cursor-pointer hover:shadow-md transition"
+          className="p-4 flex sm:hidden bg-white md:py-1 md:px-2 border-[1px] border-neutral-200  flex-row items-center gap-3 rounded-full cursor-pointer hover:shadow-md transition"
         >
           <AiOutlineMenu />
         </div>
@@ -53,14 +53,15 @@ export const UserMenu = () => {
             bg-white 
             overflow-hidden 
             right-0 
-            top-12 
+            top-[50px] 
             text-sm
           "
         >
           <div className="flex flex-col cursor-pointer">
             <>
               <MenuItem onClick={() => {}} label="Cart" />
-              <MenuItem onClick={() => {}} label="Listings" />
+              <MenuItem onClick={() => {}} label="My Listings" />
+              <MenuItem onClick={() => {}} label="Create Listing" />
               <MenuItem onClick={() => {}} label="Messages" />
             </>
           </div>

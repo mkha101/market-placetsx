@@ -17,19 +17,29 @@ export default function Navbar() {
     <nav className="w-full bg-white z-10  ">
       <div className="py-3 border-b-[1px]">
         <Container>
-          <div className="flex flex-row items-center justify-between gap-3 md:gap-0">
-            <div className="flex flex-row items-center justify-center gap-5">
-              <Link onClick={handleRefresh} href="/">
-                {" "}
-                <h1 className="font-bold text-xl ">Marketplace</h1>
-              </Link>
-            </div>
-            <Search />
-            <List />
-
+          <div className="flex flex-col ">
             <div className="flex flex-row items-center justify-between gap-3 md:gap-0">
-              <Navigation />
-              <UserMenu />
+              <div className="flex flex-row items-center justify-center gap-5">
+                <Link onClick={handleRefresh} href="/">
+                  {" "}
+                  <h1 className="font-bold text-[#FF6445] text-xl ">
+                    Marketplace
+                  </h1>
+                </Link>
+              </div>
+              <div className="hidden sm:block">
+                {" "}
+                <Search />
+              </div>
+              <List />
+              <div className="flex flex-row items-center justify-between gap-3 md:gap-0">
+                <Navigation />
+                <UserMenu />
+              </div>
+            </div>
+            <div className="block sm:hidden">
+              {" "}
+              <Search />
             </div>
           </div>
         </Container>
