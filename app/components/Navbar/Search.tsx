@@ -25,10 +25,10 @@ export const Search = () => {
           <HiOutlineLocationMarker />
           New York
         </div>
-        <div className="text-sm w-full pl-6 pr-1 textgray-600 flex justify-between flex-row items-center gap-3">
+        <div className="text-sm sm:w-auto w-full pl-6 p r-1 textgray-600 flex justify-between flex-row items-center gap-3">
           <form action="submit">
             <input
-              className="h-[30px] w-full border-none outline-none"
+              className="h-[30px] sm:w-auto w-full border-none outline-none"
               type="text"
             />
           </form>
