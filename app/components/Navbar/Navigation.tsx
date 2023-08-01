@@ -11,15 +11,15 @@ export const Navigation = () => {
       <div className="flex flex-row items-center justify-center gap-5">
         <AiOutlineShoppingCart
           size={20}
-          className="text-gray-600 transition ease-in-out  cursor-pointer hover:text-black "
+          className="text-[#FD7D01] transition ease-in-out  cursor-pointer hover:text-black "
         />
         <IoMdNotificationsOutline
           size={20}
-          className="text-gray-600 transition ease-in-out  cursor-pointer hover:text-black "
+          className="text-[#FD7D01] transition ease-in-out  cursor-pointer hover:text-black "
         />
         <AiOutlineMessage
           size={20}
-          className="text-gray-600 transition ease-in-out   cursor-pointer hover:text-black "
+          className="text-[#FD7D01] transition ease-in-out   cursor-pointer hover:text-black "
         />
       </div>
     </div>

@@ -11,14 +11,14 @@ export const List = () => {
         {" "}
         {user.isSignedIn && (
           <Link
-            className=" ml-3 text-sm font-semibold py-3 px-4 rounded-full hover:bg-neutral-100 transition ease-in-out cursor-pointer"
+            className=" ml-3 text-sm text-[#FD7D01] font-semibold py-3 px-4 rounded-full hover:bg-neutral-100 transition ease-in-out cursor-pointer"
             href="/my-listings"
           >
             My Listings
           </Link>
         )}
         <Link
-          className=" ml-3 text-sm font-semibold py-3 px-4 rounded-full hover:bg-neutral-100 transition ease-in-out cursor-pointer"
+          className=" ml-3 text-sm text-[#FD7D01] font-semibold py-3 px-4 rounded-full hover:bg-neutral-100 transition ease-in-out cursor-pointer"
           href="/create-listing"
         >
           Create Listing

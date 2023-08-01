@@ -38,7 +38,7 @@ export const Filter = () => {
               <SliderMark
                 value={sliderValue}
                 textAlign="center"
-                bg="tomato"
+                bg="#FD7D01"
                 color="white"
                 mt="-10"
                 ml="-5"

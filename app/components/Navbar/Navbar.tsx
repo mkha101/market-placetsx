@@ -3,6 +3,8 @@
 import React from "react";
 import Link from "next/link";
 import Container from "../Container";
+import Image from "next/image";
+
 import { Search } from "./Search";
 import { UserMenu } from "./UserMenu";
 import { Navigation } from "./Navigation";
@@ -21,9 +23,18 @@ export default function Navbar() {
             <div className="flex flex-row items-center justify-between gap-3 md:gap-0">
               <div className="flex flex-row items-center justify-center gap-5">
                 <Link onClick={handleRefresh} href="/">
+                  <Image
+                    src="/infinity.png"
+                    width={70}
+                    height={70}
+                    alt="Logo"
+                  />
+                </Link>
+
+                <Link onClick={handleRefresh} href="/">
                   {" "}
-                  <h1 className="font-bold text-[#FF6445] text-xl ">
-                    Marketplace
+                  <h1 className="font-bold text-[#FD7D01] text-xl ">
+                    InfinityTrade
                   </h1>
                 </Link>
               </div>
@@ -44,17 +55,17 @@ export default function Navbar() {
           </div>
         </Container>
       </div>
-      <div className="py-3 hidden sm:block border-b-[1px]">
+      <div className="py-3  bg-[#FD7D01] hidden sm:block border-b-[1px]">
         <Container>
           <div className="flex flex-row justify-start gap-10 items-center">
-            <div className="text-gray-500 text-sm">Categories</div>
-            <div className="text-gray-500 text-sm">Ready to Ship</div>
-            <div className="text-gray-500 text-sm">
+            <div className="text-white text-sm">Categories</div>
+            <div className="text-white text-sm">Ready to Ship</div>
+            <div className="text-white text-sm">
               Protection Available for Every Purchase
             </div>
-            <div className="text-gray-500 text-sm">Buyer Central</div>
-            <div className="text-gray-500 text-sm">Seller Central</div>
-            <div className="text-gray-500 text-sm">Help</div>
+            <div className="text-white text-sm">Buyer Central</div>
+            <div className="text-white text-sm">Seller Central</div>
+            <div className="text-white text-sm">Help</div>
           </div>
         </Container>
       </div>

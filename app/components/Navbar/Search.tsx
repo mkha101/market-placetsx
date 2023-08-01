@@ -1,6 +1,6 @@
 import React from "react";
 import { BiSearch } from "react-icons/bi";
-
+import { Input } from "@chakra-ui/react";
 import { HiOutlineLocationMarker } from "react-icons/hi";
 
 export const Search = () => {
@@ -32,7 +32,7 @@ export const Search = () => {
               type="text"
             />
           </form>
-          <div className="p-1.5 pl-4 pr-4 flex items-center gap-1 bg-[#FF6445] hover:bg-orange-700 rounded-full text-white">
+          <div className="p-1.5 pl-4 pr-4 flex items-center gap-1 bg-[#FD7D01] hover:bg-orange-700 rounded-full text-white">
             <BiSearch size={18} />
             Search
           </div>

@@ -36,7 +36,7 @@ export const Form = ({
       <div className="flex h-[80vh] mt-20 gap-28 flex-col justify-start items-center">
         {" "}
         <div className="">
-          <h1 className="text-4xl text-[#FF6445] font-bold">Create Listing</h1>
+          <h1 className="text-4xl text-[#FD7D01] font-bold">Create Listing</h1>
         </div>
         <div className="flex  flex-col items-center justify-center">
           {" "}
@@ -52,7 +52,7 @@ export const Form = ({
                 Title
               </label>
               <input
-                className="shadow border-[#FF6445] appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                className="shadow border-[#FD7D01] appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 id="title"
                 type="text"
                 placeholder=""
@@ -76,7 +76,7 @@ export const Form = ({
                 onChange={(e) =>
                   setListings({ ...listings, description: e.target.value })
                 }
-                borderColor="tomato"
+                borderColor="[#FD7D01]"
                 focusBorderColor=""
                 typeof="text"
                 placeholder=""
@@ -94,8 +94,8 @@ export const Form = ({
 
               <Select
                 bg="white"
-                borderColor="tomato"
-                color="tomato"
+                borderColor="[#FD7D01]"
+                color="[#FD7D01]"
                 placeholder=""
               >
                 <option value="option1">Clothing</option>
@@ -106,7 +106,7 @@ export const Form = ({
             <div className="flex items-center justify-center">
               <button
                 type="submit"
-                className="bg-[#FF6445] hover:bg-orange-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                className="bg-[#FD7D01] hover:bg-orange-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                 onClick={() =>
                   toast({
                     title: "Listing created.",
