@@ -6,7 +6,10 @@ import { Cards } from "./components/Cards/Cards";
 export default function Home() {
   return (
     <main className="w-full  ">
-      <Container></Container>
+      <Container>
+        {" "}
+        <div></div>
+      </Container>
     </main>
   );
 }
