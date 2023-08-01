@@ -24,7 +24,7 @@ export default function Navbar() {
               <div className="flex flex-row items-center justify-center gap-3">
                 <Link onClick={handleRefresh} href="/">
                   <Image
-                    src="/infinity.png"
+                    src="/Infinity.png"
                     width={60}
                     height={60}
                     alt="Logo"
