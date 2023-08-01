@@ -21,12 +21,12 @@ export default function Navbar() {
         <Container>
           <div className="flex flex-col ">
             <div className="flex flex-row items-center justify-between gap-3 md:gap-0">
-              <div className="flex flex-row items-center justify-center gap-5">
+              <div className="flex flex-row items-center justify-center gap-3">
                 <Link onClick={handleRefresh} href="/">
                   <Image
                     src="/infinity.png"
-                    width={70}
-                    height={70}
+                    width={60}
+                    height={60}
                     alt="Logo"
                   />
                 </Link>

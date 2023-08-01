@@ -8,7 +8,12 @@ export const List = () => {
     <div className="hidden lg:block">
       {" "}
       <div className="flex gap-10 justify center items-center  ">
-        {" "}
+        <Link
+          className=" ml-3 text-sm text-[#FD7D01] font-semibold py-3 px-4 rounded-full hover:bg-neutral-100 transition ease-in-out cursor-pointer"
+          href="/products"
+        >
+          Products
+        </Link>{" "}
         {user.isSignedIn && (
           <Link
             className=" ml-3 text-sm text-[#FD7D01] font-semibold py-3 px-4 rounded-full hover:bg-neutral-100 transition ease-in-out cursor-pointer"
