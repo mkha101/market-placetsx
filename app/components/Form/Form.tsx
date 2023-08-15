@@ -8,8 +8,7 @@ import {
   NumberDecrementStepper,
   useToast,
 } from "@chakra-ui/react";
-import { format } from "path";
-import { parse } from "postcss";
+
 import React from "react";
 
 export const Form = ({
@@ -25,10 +24,6 @@ export const Form = ({
   submitting: any;
   handleSubmit: any;
 }) => {
-  const format = (val: string) => `$` + val;
-  const parse = (val: string) => val.replace(/^\$/, "");
-
-  const [value, setValue] = React.useState("");
   const toast = useToast();
 
   return (
@@ -97,6 +92,10 @@ export const Form = ({
                 borderColor="[#FD7D01]"
                 color="[#FD7D01]"
                 placeholder=""
+                value={listings.category} // Set the value based on the state
+                onChange={(e) =>
+                  setListings({ ...listings, category: e.target.value })
+                } // Update the state when an option is selected
               >
                 <option value="option1">Clothing</option>
                 <option value="option2">Shoes</option>

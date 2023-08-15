@@ -6,6 +6,8 @@ import { Cards } from "./components/Cards/Cards";
 export default function Home() {
   return (
     <main className="w-full  ">
+      <div className="w-full"> </div>
+
       <Container>
         {" "}
         <div></div>

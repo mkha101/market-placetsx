@@ -9,35 +9,34 @@ import { Form } from "../components/Form/Form";
 
 const CreateListing = () => {
   const router = useRouter();
-
   const { userId, getToken } = useAuth();
+
   const [submitting, setSubmitting] = useState(false);
 
   const [listings, setListings] = useState({
     title: "",
     description: "",
     category: "",
-    price: "",
   });
 
   const createListing = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-
     try {
+      e.preventDefault();
+
       setSubmitting(true);
       const token = await getToken({ template: "supabase" });
 
-      // Check if userId is available before proceeding
       if (!userId) {
         console.error("User ID is null or undefined.");
         return;
       }
 
-      const posts = await postListing({ e, userId, token });
+      const posts = await postListing({ listings, userId, token });
       setListings(listings);
       if (listings) {
-        router.push("/");
+        router.push("/my-listings");
       }
+      console.log(listings);
     } catch (error) {
       console.error("An error occurred:", error);
     } finally {

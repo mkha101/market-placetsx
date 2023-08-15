@@ -19,7 +19,7 @@ export default function Navbar() {
     <nav className="w-full bg-white z-10  ">
       <div className="py-3 border-b-[1px]">
         <Container>
-          <div className="flex flex-col ">
+          <div className="flex flex-col flex-nowrap ">
             <div className="flex flex-row items-center justify-between gap-3 md:gap-0">
               <div className="flex flex-row items-center justify-center gap-3">
                 <Link onClick={handleRefresh} href="/">
@@ -42,8 +42,8 @@ export default function Navbar() {
                 {" "}
                 <Search />
               </div>
-              <List />
               <div className="flex flex-row items-center justify-between gap-3 md:gap-0">
+                <List />
                 <Navigation />
                 <UserMenu />
               </div>

@@ -9,7 +9,7 @@ export const getListings = async ({
   token: string | null;
 }) => {
   const supabase = await supabaseClient(token);
-  const { data: todos, error } = await supabase
+  const { data: listings, error } = await supabase
     .from("Listings")
     .select("*")
     .eq("user_id", userId);
@@ -19,31 +19,29 @@ export const getListings = async ({
     return [];
   }
 
-  return todos;
+  return listings;
 };
 
 export const postListing = async ({
   userId,
   token,
-  e,
+  listings,
 }: {
   userId: string;
   token: string | null;
-  e: React.FormEvent<HTMLFormElement>;
+  listings: any;
 }) => {
-  const formData = new FormData(e.currentTarget); // Pass the currentTarget (form element) to FormData
-
-  e.preventDefault(); // Make sure to prevent the form submission since you're handling it manually
+  const { title, description, category, price } = listings;
 
   const supabase = await supabaseClient(token);
   const { data, error } = await supabase
-    .from("Listing")
+    .from("Listings")
     .insert({
       user_id: userId,
-      title: formData.get("title") as string,
-      description: formData.get("description") as string,
-      category: formData.get("category") as string,
-      price: formData.get("price") as string,
+      title,
+      description,
+      category,
+      price,
     })
     .select();
 
