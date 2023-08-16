@@ -1,9 +1,16 @@
+"use client";
+
 import Container from "../components/Container";
 import React from "react";
-import { Cards } from "../components/Cards/Cards";
 import { Filter } from "../components/Filter/Filter";
+import ListingsCard from "../components/ListingsCard";
+import { getToken } from "@chakra-ui/react";
+import ListingsContainer from "../components/ListingsContainer";
+import { useAuth } from "@clerk/nextjs";
 
 export default function page() {
+  const { userId, getToken } = useAuth();
+
   return (
     <main className="w-full  ">
       <Container>
@@ -12,11 +19,9 @@ export default function page() {
             {" "}
             <Filter />
           </div>
-          <div className="w-3/4  flex flex-row flex-wrap gap-10 mt-10 ml-40 ">
+          <div className="w-3/4  flex flex-row flex-wrap gap-32 mt-10 ml-30 ">
             {" "}
-            <Cards />
-            <Cards />
-            <Cards />
+            <ListingsContainer userId={userId} getToken={getToken} />
           </div>
         </div>
       </Container>

@@ -9,6 +9,8 @@ import {
   useToast,
 } from "@chakra-ui/react";
 
+import Image from "next/image";
+
 import React from "react";
 
 export const Form = ({
@@ -92,14 +94,14 @@ export const Form = ({
                 borderColor="[#FD7D01]"
                 color="[#FD7D01]"
                 placeholder=""
-                value={listings.category} // Set the value based on the state
+                value={listings.category}
                 onChange={(e) =>
                   setListings({ ...listings, category: e.target.value })
-                } // Update the state when an option is selected
+                }
               >
-                <option value="option1">Clothing</option>
-                <option value="option2">Shoes</option>
-                <option value="option3">Technology</option>
+                <option value="Clothing">Clothing</option>
+                <option value="Shoes">Shoes</option>
+                <option value="Technology">Technology</option>
               </Select>
             </div>
             <div className="flex items-center justify-center">
