@@ -8,7 +8,7 @@ import { getToken } from "@chakra-ui/react";
 import ListingsContainer from "../components/ListingsContainer";
 import { useAuth } from "@clerk/nextjs";
 
-export default function page() {
+export default function Page() {
   const { userId, getToken } = useAuth();
 
   return (
