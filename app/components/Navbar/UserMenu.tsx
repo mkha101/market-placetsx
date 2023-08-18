@@ -3,7 +3,6 @@
 import React, { useCallback, useState } from "react";
 import { AiOutlineMenu } from "react-icons/ai";
 import { FiSettings } from "react-icons/fi";
-import { UserButton, useUser, currentUser } from "@clerk/nextjs";
 import MenuItem from "./MenuItem";
 import { useRouter } from "next/navigation";
 
@@ -23,31 +22,23 @@ export const UserMenu = () => {
     setIsOpen((value) => !value);
   }, []);
 
-  const user = useUser();
-
   return (
     <div className="relative">
       <div className="flex flex-row items-center gap-5 ">
-        {user.isSignedIn ? (
-          <>
-            <div
-              onClick={toggleOpen}
-              className="hidden  flex-row justify-center items-center gap-2 md:flex ml-3 text-sm text-white bg-[#FD7D01] font-semibold py-2 px-4 rounded-full hover:bg-orange-700  transition ease-in-out cursor-pointer"
-            >
-              <FiSettings />{" "}
-            </div>
-            <UserButton />
-          </>
-        ) : (
-          <>
-            <Link
-              className="ml-2 text-sm font-semibold py-3 px-4 rounded-full hover:bg-neutral-100 transition ease-in-out cursor-pointer"
-              href="/sign-in"
-            >
-              Sign In
-            </Link>
-          </>
-        )}
+        <div
+          onClick={toggleOpen}
+          className="hidden  flex-row justify-center items-center gap-2 md:flex ml-3 text-sm text-white bg-[#FD7D01] font-semibold py-2 px-4 rounded-full hover:bg-orange-700  transition ease-in-out cursor-pointer"
+        >
+          <FiSettings />{" "}
+        </div>
+
+        <Link
+          className="ml-2 text-sm font-semibold py-3 px-4 rounded-full hover:bg-neutral-100 transition ease-in-out cursor-pointer"
+          href="/sign-in"
+        >
+          Sign In
+        </Link>
+
         <div
           onClick={toggleMobileOpen}
           className="p-4 flex sm:hidden bg-white md:py-1 md:px-2 border-[1px] border-neutral-200  flex-row items-center gap-3 rounded-full cursor-pointer hover:shadow-md transition"

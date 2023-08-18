@@ -19,7 +19,7 @@ export default function Page() {
             {" "}
             <Filter />
           </div>
-          <div className="w-3/4  flex flex-row flex-wrap gap-32 mt-10 ml-30 ">
+          <div className="w-3/4 flex flex-row flex-wrap gap-32 mt-10 ml-30 ">
             {" "}
             <ListingsContainer userId={userId} getToken={getToken} />
           </div>

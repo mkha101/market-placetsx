@@ -2,7 +2,6 @@ import React from "react";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { IoMdNotificationsOutline } from "react-icons/io";
 import { AiOutlineMessage } from "react-icons/ai";
-import { UserButton } from "@clerk/nextjs";
 import Link from "next/link";
 
 export const Navigation = () => {
