@@ -8,13 +8,19 @@ import Image from "next/image";
 import { Search } from "./Search";
 import { UserMenu } from "./UserMenu";
 import { Navigation } from "./Navigation";
-import router, { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import { List } from "./List";
+import { User } from "@supabase/supabase-js";
+import { Button } from "@chakra-ui/react";
+import supabase from "@/app/lib/supabase-browser";
 
-export default function Navbar() {
+export default function Navbar({ user }: { user: User | null }) {
+  const router = useRouter();
+
   const handleRefresh = () => {
-    router.reload();
+    router.refresh();
   };
+
   return (
     <nav className="w-full bg-white z-10  ">
       <div className="py-3 border-b-[1px]">
@@ -45,6 +51,28 @@ export default function Navbar() {
               <div className="flex flex-row items-center justify-between gap-3 md:gap-0">
                 <List />
                 <Navigation />
+                {user ? (
+                  <>
+                    <Button>{user.email}</Button>
+                    <Button
+                      onClick={async () => {
+                        await supabase.auth.signOut();
+                        router.push("/");
+                        location.reload();
+                      }}
+                    >
+                      Sign Out
+                    </Button>
+                  </>
+                ) : (
+                  <Link
+                    className="ml-2 text-sm font-semibold py-3 px-4 rounded-full hover:bg-neutral-100 transition ease-in-out cursor-pointer"
+                    href="/sign-in"
+                  >
+                    Sign In
+                  </Link>
+                )}
+
                 <UserMenu />
               </div>
             </div>

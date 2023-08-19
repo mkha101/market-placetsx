@@ -26,7 +26,7 @@ export default async function RootLayout({
       </Head>
       <body className="">
         <Providers>
-          <Navbar />
+          <Navbar user={user} />
           {children}
         </Providers>
       </body>
