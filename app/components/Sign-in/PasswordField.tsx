@@ -17,47 +17,47 @@ interface PasswordFieldProps extends InputProps {
   setPassword: (value: string) => void;
 }
 
-export const PasswordField = forwardRef<
-  HTMLInputElement,
-  {
-    password: string;
-    setPassword: React.Dispatch<React.SetStateAction<string>>;
-  } & InputProps
->(({ password, setPassword, ...props }, ref) => {
-  const { isOpen, onToggle } = useDisclosure();
-  const inputRef = useRef<HTMLInputElement>(null);
+export const PasswordField = forwardRef<HTMLInputElement, PasswordFieldProps>(
+  ({ password, setPassword, ...props }, ref) => {
+    // Destructure password and setPassword
+    const { isOpen, onToggle } = useDisclosure();
+    const inputRef = useRef<HTMLInputElement>(null);
 
-  const mergeRef = useMergeRefs(inputRef, ref);
-  const onClickReveal = () => {
-    onToggle();
-    if (inputRef.current) {
-      inputRef.current.focus({ preventScroll: true });
-    }
-  };
+    const mergeRef = useMergeRefs(inputRef, ref);
+    const onClickReveal = () => {
+      onToggle();
+      if (inputRef.current) {
+        inputRef.current.focus({ preventScroll: true });
+      }
+    };
 
-  return (
-    <FormControl>
-      <FormLabel htmlFor="password">Password</FormLabel>
-      <InputGroup>
-        <InputRightElement>
-          <IconButton
-            variant="text"
-            aria-label={isOpen ? "Mask password" : "Reveal password"}
-            icon={isOpen ? <HiEyeOff /> : <HiEye />}
-            onClick={onClickReveal}
+    return (
+      <FormControl>
+        <FormLabel htmlFor="password">Password</FormLabel>
+        <InputGroup>
+          <InputRightElement>
+            <IconButton
+              variant="text"
+              aria-label={isOpen ? "Mask password" : "Reveal password"}
+              icon={isOpen ? <HiEyeOff /> : <HiEye />}
+              onClick={onClickReveal}
+            />
+          </InputRightElement>
+          <Input
+            id="password"
+            ref={mergeRef}
+            name="password"
+            type={isOpen ? "text" : "password"}
+            onChange={(e) => setPassword(e.target.value)}
+            value={password}
+            autoComplete="current-password"
+            required
+            {...props}
           />
-        </InputRightElement>
-        <Input
-          id="password"
-          ref={mergeRef}
-          name="password"
-          type={isOpen ? "text" : "password"}
-          autoComplete="current-password"
-          required
-          value={password}
-          {...props}
-        />
-      </InputGroup>
-    </FormControl>
-  );
-});
+        </InputGroup>
+      </FormControl>
+    );
+  }
+);
+
+PasswordField.displayName = "PasswordField";
