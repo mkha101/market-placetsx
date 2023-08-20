@@ -83,47 +83,7 @@ export const UserMenu = () => {
             </Link>
           </>
         )}
-        <div
-          onClick={toggleMobileOpen}
-          className="p-4 flex sm:hidden bg-white md:py-1 md:px-2 border-[1px] border-neutral-200  flex-row items-center gap-3 rounded-full cursor-pointer hover:shadow-md transition"
-        >
-          <AiOutlineMenu />
-        </div>
       </div>
-      {isMobileOpen && (
-        <div
-          className="
-            absolute 
-            rounded-xl 
-            shadow-md
-            w-[40vw]
-            md:w-3/4 
-            bg-white 
-            overflow-hidden 
-            right-0 
-            top-[50px] 
-            text-sm
-          "
-        >
-          <div className="flex flex-col cursor-pointer">
-            <>
-              <MenuItem onClick={() => router.push("/cart")} label="Cart" />
-              <MenuItem
-                onClick={() => router.push("/create-listing")}
-                label="Create Listing"
-              />
-              <MenuItem
-                onClick={() => router.push("/my-listings")}
-                label="Listings"
-              />
-              <MenuItem
-                onClick={() => router.push("/messages")}
-                label="Messages"
-              />
-            </>
-          </div>
-        </div>
-      )}
     </div>
   );
 };
