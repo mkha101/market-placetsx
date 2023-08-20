@@ -3,10 +3,9 @@
 import React, { useEffect, useState } from "react";
 import Container from "../components/Container";
 import { getListings } from "../../utils/requests";
-/*
+
 import ListingsCard from "../components/ListingsCard";
 import ListingsContainer from "../components/ListingsContainer";
-*/
 
 const MyListings = () => {
   return (
