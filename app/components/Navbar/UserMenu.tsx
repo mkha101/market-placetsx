@@ -8,6 +8,18 @@ import MenuItem from "./MenuItem";
 import { useRouter } from "next/navigation";
 
 import Link from "next/link";
+import {
+  Wrap,
+  WrapItem,
+  Avatar,
+  Button,
+  Menu,
+  MenuButton,
+  MenuDivider,
+  MenuGroup,
+  MenuList,
+} from "@chakra-ui/react";
+import router from "next/router";
 
 export const UserMenu = () => {
   const router = useRouter();
@@ -30,13 +42,35 @@ export const UserMenu = () => {
       <div className="flex flex-row items-center gap-5 ">
         {user.isSignedIn ? (
           <>
-            <div
-              onClick={toggleOpen}
-              className="hidden  flex-row justify-center items-center gap-2 md:flex ml-3 text-sm text-white bg-[#FD7D01] font-semibold py-2 px-4 rounded-full hover:bg-orange-700  transition ease-in-out cursor-pointer"
-            >
-              <FiSettings />{" "}
-            </div>
-            <UserButton />
+            <Menu>
+              <MenuButton className="ml-3">
+                <Avatar
+                  className="cursor-pointer   border-solid border-4 hover:border-[#FD7D01]"
+                  name="Dan Abrahmov"
+                  src="https://bit.ly/dan-abramov"
+                />
+              </MenuButton>
+              <MenuList className="cursor-pointer">
+                <MenuGroup title="Profile">
+                  <MenuItem
+                    onClick={() => router.push("/cart")}
+                    label="My Account"
+                  />
+                  <MenuItem onClick={() => router.push("/cart")} label="Cart" />
+                </MenuGroup>
+                <MenuDivider />
+                <MenuGroup title="Listings">
+                  <MenuItem
+                    onClick={() => router.push("/create-listing")}
+                    label="Create Listing"
+                  />
+                  <MenuItem
+                    onClick={() => router.push("/my-listings")}
+                    label="My Listings"
+                  />
+                </MenuGroup>
+              </MenuList>
+            </Menu>
           </>
         ) : (
           <>
@@ -84,36 +118,6 @@ export const UserMenu = () => {
               <MenuItem
                 onClick={() => router.push("/messages")}
                 label="Messages"
-              />
-            </>
-          </div>
-        </div>
-      )}
-      {isOpen && (
-        <div
-          className="
-            absolute 
-            rounded-xl 
-            shadow-md
-            w-[40vw]
-            md:w-40
-            bg-white 
-            overflow-hidden 
-            right-0 
-            top-[50px] 
-            text-sm
-          "
-        >
-          <div className="flex flex-col cursor-pointer">
-            <>
-              <MenuItem onClick={() => router.push("/cart")} label="Cart" />
-              <MenuItem
-                onClick={() => router.push("/create-listing")}
-                label="Create Listing"
-              />
-              <MenuItem
-                onClick={() => router.push("/my-listings")}
-                label="Listings"
               />
             </>
           </div>

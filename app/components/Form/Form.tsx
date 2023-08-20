@@ -104,6 +104,34 @@ export const Form = ({
                 <option value="Technology">Technology</option>
               </Select>
             </div>
+            <div className="mb-6 ">
+              <NumberInput
+                value={listings.price}
+                onChange={(e) => setListings({ ...listings, price: e })}
+              >
+                <NumberInputField />
+                <NumberInputStepper>
+                  <NumberIncrementStepper />
+                  <NumberDecrementStepper />
+                </NumberInputStepper>
+              </NumberInput>
+            </div>
+            <div className="mb-6 flex">
+              <label htmlFor="file-upload" className="custom-file-upload">
+                Attach Image
+              </label>
+              <input
+                id="file-upload"
+                type="file"
+                accept="image/"
+                onChange={(e) =>
+                  setListings({
+                    ...listings,
+                    imageFile: e.target.files?.[0] || null,
+                  })
+                }
+              />
+            </div>
             <div className="flex items-center justify-center">
               <button
                 type="submit"
