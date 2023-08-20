@@ -45,6 +45,7 @@ export const UserMenu = () => {
             <Menu>
               <MenuButton className="ml-3">
                 <Avatar
+                  colorScheme="whiteAlpha"
                   className="cursor-pointer   border-solid border-4 hover:border-[#FD7D01]"
                   name="Dan Abrahmov"
                   src="https://bit.ly/dan-abramov"
@@ -53,7 +54,7 @@ export const UserMenu = () => {
               <MenuList className="cursor-pointer">
                 <MenuGroup title="Profile">
                   <MenuItem
-                    onClick={() => router.push("/cart")}
+                    onClick={() => router.push("/my-account")}
                     label="My Account"
                   />
                   <MenuItem onClick={() => router.push("/cart")} label="Cart" />
