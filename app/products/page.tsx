@@ -9,7 +9,13 @@ import { getToken } from "@chakra-ui/react";
 import ListingsContainer from "../components/ListingsContainer";
 */
 
+<<<<<<< HEAD
 export default function Page() {
+=======
+export default function page() {
+  const { userId, getToken } = useAuth();
+
+>>>>>>> parent of b38533c (Made products page public)
   return (
     <main className="w-full  ">
       <Container>
