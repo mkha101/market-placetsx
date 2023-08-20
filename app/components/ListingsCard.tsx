@@ -19,37 +19,41 @@ interface Post {
   title: string;
   description: string;
   category: string;
-  price: number;
 }
 
 const ListingsCard: React.FC<{ post: Post }> = ({ post }) => {
   return (
     <div className="prompt_card" key={post.id}>
-      <Card
-        direction={{ base: "column", sm: "row" }}
-        overflow="hidden"
-        variant="outline"
-      >
-        <Image
-          objectFit="cover"
-          width={300}
-          height={300}
-          src="/iphone.jpeg"
-          alt="Caffe Latte"
-        />
+      <Card maxW="sm">
+        <CardBody>
+          <Stack mt="6" spacing="3">
+            <Text>{post.category}</Text>
 
-        <Stack>
-          <CardBody>
             <Heading size="md">{post.title}</Heading>
+            <Image
+              src="/iphone.jpeg"
+              alt="Green double couch with wooden legs"
+              width={300}
+              height={100}
+            />
+            <Text>{post.description}</Text>
 
-            <Text py="2">{post.description}</Text>
-            <Text>{post.price}</Text>
-          </CardBody>
-
-          <CardFooter>
-            <Button colorScheme="blue">Buy</Button>
-          </CardFooter>
-        </Stack>
+            <Text color="blue.600" fontSize="2xl">
+              $450
+            </Text>
+          </Stack>
+        </CardBody>
+        <Divider />
+        <CardFooter>
+          <ButtonGroup spacing="2">
+            <Button variant="solid" colorScheme="blue">
+              Buy now
+            </Button>
+            <Button variant="ghost" colorScheme="blue">
+              Add to cart
+            </Button>
+          </ButtonGroup>
+        </CardFooter>
       </Card>
     </div>
   );

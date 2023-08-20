@@ -4,12 +4,12 @@ import React from "react";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { postListing } from "../../utils/requests";
-
+import { useAuth } from "@clerk/nextjs";
 import { Form } from "../components/Form/Form";
-import { v4 as uuidv4 } from "uuid";
 
 const CreateListing = () => {
   const router = useRouter();
+  const { userId, getToken } = useAuth();
 
   const [submitting, setSubmitting] = useState(false);
 
@@ -17,7 +17,6 @@ const CreateListing = () => {
     title: "",
     description: "",
     category: "",
-    price: "",
   });
 
   const createListing = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -25,7 +24,14 @@ const CreateListing = () => {
       e.preventDefault();
 
       setSubmitting(true);
+      const token = await getToken({ template: "supabase" });
 
+      if (!userId) {
+        console.error("User ID is null or undefined.");
+        return;
+      }
+
+      const posts = await postListing({ listings, userId, token });
       setListings(listings);
       if (listings) {
         router.push("/my-listings");

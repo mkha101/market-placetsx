@@ -28,9 +28,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "app/create-listing/page.jsx",
-    "app/lib/supabase.types",
-    "app/lib/supabase.types"
+    "app/create-listing/page.jsx"
   ],
   "exclude": ["node_modules"]
 }

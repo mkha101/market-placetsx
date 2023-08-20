@@ -1,7 +1,9 @@
+import { useUser } from "@clerk/nextjs";
 import Link from "next/link";
 import React from "react";
 
 export const List = () => {
+  const user = useUser();
   return (
     <div className="block">
       {" "}

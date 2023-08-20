@@ -1,24 +1,15 @@
 "use client";
 
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useState } from "react";
 import { AiOutlineMenu } from "react-icons/ai";
 import { FiSettings } from "react-icons/fi";
+import { UserButton, useUser, currentUser } from "@clerk/nextjs";
 import MenuItem from "./MenuItem";
 import { useRouter } from "next/navigation";
-import { User } from "@supabase/supabase-js";
-import {
-  Avatar,
-  AvatarBadge,
-  AvatarGroup,
-  Button,
-  Wrap,
-  WrapItem,
-} from "@chakra-ui/react";
 
 import Link from "next/link";
-import supabase from "@/app/lib/supabase-browser";
 
-export const UserMenu = ({ user }: { user: User | null }) => {
+export const UserMenu = () => {
   const router = useRouter();
 
   const [isMobileOpen, setIsMobileOpen] = useState(false);
@@ -32,35 +23,31 @@ export const UserMenu = ({ user }: { user: User | null }) => {
     setIsOpen((value) => !value);
   }, []);
 
+  const user = useUser();
+
   return (
     <div className="relative">
-      <div className="flex flex-row items-center gap-1 ">
-        {user ? (
+      <div className="flex flex-row items-center gap-5 ">
+        {user.isSignedIn ? (
           <>
-            <Button className="ml-2 text-sm font-semibold py-3 px-4 rounded-full hover:bg-neutral-100 transition ease-in-out cursor-pointer">
-              {user.email}
-            </Button>
-            <Wrap>
-              <WrapItem>
-                <Avatar name="Dan Abrahmov" src="https://bit.ly/dan-abramov" />
-              </WrapItem>
-            </Wrap>
+            <div
+              onClick={toggleOpen}
+              className="hidden  flex-row justify-center items-center gap-2 md:flex ml-3 text-sm text-white bg-[#FD7D01] font-semibold py-2 px-4 rounded-full hover:bg-orange-700  transition ease-in-out cursor-pointer"
+            >
+              <FiSettings />{" "}
+            </div>
+            <UserButton />
           </>
         ) : (
-          <Link
-            className="ml-2 text-sm font-semibold py-3 px-4 rounded-full hover:bg-neutral-100 transition ease-in-out cursor-pointer"
-            href="/sign-in"
-          >
-            Sign In
-          </Link>
+          <>
+            <Link
+              className="ml-2 text-sm font-semibold py-3 px-4 rounded-full hover:bg-neutral-100 transition ease-in-out cursor-pointer"
+              href="/sign-in"
+            >
+              Sign In
+            </Link>
+          </>
         )}
-        <div
-          onClick={toggleOpen}
-          className="hidden  flex-row justify-center items-center gap-2 md:flex ml-3 text-sm text-white bg-[#FD7D01] font-semibold py-2 px-4 rounded-full hover:bg-orange-700  transition ease-in-out cursor-pointer"
-        >
-          <FiSettings />{" "}
-        </div>
-
         <div
           onClick={toggleMobileOpen}
           className="p-4 flex sm:hidden bg-white md:py-1 md:px-2 border-[1px] border-neutral-200  flex-row items-center gap-3 rounded-full cursor-pointer hover:shadow-md transition"
@@ -102,10 +89,9 @@ export const UserMenu = ({ user }: { user: User | null }) => {
           </div>
         </div>
       )}
-      <>
-        {isOpen && (
-          <div
-            className="
+      {isOpen && (
+        <div
+          className="
             absolute 
             rounded-xl 
             shadow-md
@@ -117,45 +103,22 @@ export const UserMenu = ({ user }: { user: User | null }) => {
             top-[50px] 
             text-sm
           "
-          >
-            <div className="flex flex-col cursor-pointer">
-              <>
-                <MenuItem onClick={() => router.push("/cart")} label="Cart" />
-                <MenuItem
-                  onClick={() => {
-                    // Check if the user is authenticated before redirecting
-                    if (user) {
-                      router.push("/create-listing");
-                    } else {
-                      router.push("/sign-in");
-                    }
-                  }}
-                  label="Create Listing"
-                />
-                <MenuItem
-                  onClick={() => {
-                    // Check if the user is authenticated before redirecting
-                    if (user) {
-                      router.push("/my-listings");
-                    } else {
-                      router.push("/sign-in");
-                    }
-                  }}
-                  label="Listings"
-                />
-                <MenuItem
-                  onClick={async () => {
-                    await supabase.auth.signOut();
-                    router.push("/");
-                    location.reload();
-                  }}
-                  label="Sign Out"
-                />
-              </>
-            </div>
+        >
+          <div className="flex flex-col cursor-pointer">
+            <>
+              <MenuItem onClick={() => router.push("/cart")} label="Cart" />
+              <MenuItem
+                onClick={() => router.push("/create-listing")}
+                label="Create Listing"
+              />
+              <MenuItem
+                onClick={() => router.push("/my-listings")}
+                label="Listings"
+              />
+            </>
           </div>
-        )}
-      </>
+        </div>
+      )}
     </div>
   );
 };
