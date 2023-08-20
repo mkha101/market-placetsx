@@ -1,4 +1,4 @@
-import {
+/*import {
   Card,
   CardBody,
   Stack,
@@ -56,3 +56,4 @@ const ListingsCard: React.FC<{ post: Post }> = ({ post }) => {
 };
 
 export default ListingsCard;
+*/

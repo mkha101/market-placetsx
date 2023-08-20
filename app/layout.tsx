@@ -8,6 +8,7 @@ export const metadata = {
   title: "InfinityTrade",
   description: "Shop and Sell",
 };
+export const revalidate = 0;
 
 export default async function RootLayout({
   children,

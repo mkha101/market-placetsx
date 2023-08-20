@@ -51,6 +51,7 @@ export default function Login() {
                 Log in to your account
               </Heading>
               <Text color="fg.muted">
+                {/* eslint-disable-next-line react/no-unescaped-entities */}
                 Don't have an account? <Link href="/sign-up">Sign up</Link>
               </Text>
             </Stack>

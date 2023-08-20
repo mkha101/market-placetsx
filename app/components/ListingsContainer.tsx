@@ -1,3 +1,4 @@
+/*  
 import React, { useEffect, useState } from "react";
 import ListingsCard from "./ListingsCard"; // Adjust the import path
 import { getListings } from "../../utils/requests";
@@ -13,6 +14,9 @@ const ListingsContainer = () => {
       if (userId) {
         // Check if userId is defined
         const data = await getListings({ userId, token });
+        {
+        }
+
         setListings(data);
       }
     };
@@ -28,3 +32,4 @@ const ListingsContainer = () => {
 };
 
 export default ListingsContainer;
+*/

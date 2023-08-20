@@ -17,6 +17,7 @@ import {
   Link,
   Stack,
   Text,
+  useToast,
 } from "@chakra-ui/react";
 import { OAuthButtonGroup } from "@/app/components/Sign-in/OAuthButtonGroup";
 import { PasswordField } from "@/app/components/Sign-in/PasswordField";
@@ -26,18 +27,50 @@ export default function Login() {
   const [password, setPassword] = useState("");
   const router = useRouter();
   const supabase = createClientComponentClient();
+  const toast = useToast();
 
   const handleSignUp = async () => {
-    await supabase.auth.signUp({
-      email,
-      password,
-      options: {
-        emailRedirectTo: `${location.origin}/auth/callback`,
-      },
-    });
-    router.refresh();
-  };
+    if (!email || !password) {
+      toast({
+        title: "Sign-up failed.",
+        description: "Please fill in both email and password fields.",
+        status: "error",
+        duration: 2000,
+        isClosable: true,
+      });
+      return;
+    }
 
+    try {
+      await supabase.auth.signUp({
+        email,
+        password,
+        options: {
+          emailRedirectTo: `${location.origin}/auth/callback`,
+        },
+      });
+
+      toast({
+        title: "Account created.",
+        description: "We've created your account for you.",
+        status: "success",
+        duration: 2000,
+        isClosable: true,
+      });
+
+      router.refresh();
+    } catch (error) {
+      toast({
+        title: "Sign-up failed.",
+        description: "An error occurred while signing up.",
+        status: "error",
+        duration: 2000,
+        isClosable: true,
+      });
+
+      console.error("Sign-up error:", error);
+    }
+  };
   return (
     <>
       <Container
@@ -69,9 +102,14 @@ export default function Login() {
                     name="email"
                     onChange={(e) => setEmail(e.target.value)}
                     value={email}
+                    required
                   />
                 </FormControl>
-                <PasswordField password={password} setPassword={setPassword} />
+                <PasswordField
+                  isRequired
+                  password={password}
+                  setPassword={setPassword}
+                />
               </Stack>
               <HStack justify="space-between">
                 <Checkbox defaultChecked>Remember me</Checkbox>
