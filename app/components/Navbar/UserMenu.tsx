@@ -1,11 +1,17 @@
 "use client";
 
 import React, { useCallback, useState } from "react";
-import { AiOutlineMenu } from "react-icons/ai";
+import {
+  AiOutlineMenu,
+  AiOutlineMessage,
+  AiOutlineShoppingCart,
+} from "react-icons/ai";
 import { FiSettings } from "react-icons/fi";
-import { UserButton, useUser, currentUser } from "@clerk/nextjs";
+import { UserButton, useUser, currentUser, SignOutButton } from "@clerk/nextjs";
 import MenuItem from "./MenuItem";
 import { useRouter } from "next/navigation";
+
+import { useDisclosure } from "@chakra-ui/react";
 
 import Link from "next/link";
 import {
@@ -20,30 +26,39 @@ import {
   MenuList,
 } from "@chakra-ui/react";
 import router from "next/router";
+import { users } from "@clerk/nextjs/api";
+import { IoMdNotificationsOutline } from "react-icons/io";
 
 export const UserMenu = () => {
   const router = useRouter();
-
-  const [isMobileOpen, setIsMobileOpen] = useState(false);
-  const [isOpen, setIsOpen] = useState(false);
-
-  const toggleMobileOpen = useCallback(() => {
-    setIsMobileOpen((value) => !value);
-  }, []);
-
-  const toggleOpen = useCallback(() => {
-    setIsOpen((value) => !value);
-  }, []);
+  const { isOpen, onOpen, onClose } = useDisclosure();
 
   const user = useUser();
 
   return (
     <div className="relative">
       <div className="flex flex-row items-center gap-5 ">
+        <div className="hidden sm:block">
+          <div className="flex flex-row items-center justify-center gap-5">
+            <AiOutlineShoppingCart
+              size={20}
+              className="text-[#FD7D01] transition ease-in-out  cursor-pointer hover:text-black "
+            />
+            <IoMdNotificationsOutline
+              size={20}
+              className="text-[#FD7D01] transition ease-in-out  cursor-pointer hover:text-black "
+            />
+            <AiOutlineMessage
+              size={20}
+              className="text-[#FD7D01] transition ease-in-out   cursor-pointer hover:text-black "
+            />
+          </div>
+        </div>
         {user.isSignedIn ? (
           <>
-            <Menu>
-              <MenuButton className="ml-3">
+            <h1 className="ml-2 text-sm font-semibold py-3 px-4  ">Hi,</h1>
+            <Menu isOpen={isOpen} onClose={onClose}>
+              <MenuButton onMouseEnter={onOpen} className="ml-3">
                 <Avatar
                   colorScheme="whiteAlpha"
                   className="cursor-pointer   border-solid border-4 hover:border-[#FD7D01]"
@@ -51,8 +66,12 @@ export const UserMenu = () => {
                   src="https://bit.ly/dan-abramov"
                 />
               </MenuButton>
-              <MenuList className="cursor-pointer">
-                <MenuGroup title="Profile">
+              <MenuList
+                onMouseLeave={onClose}
+                onMouseEnter={onOpen}
+                className="cursor-pointer"
+              >
+                <MenuGroup className="text-[#FD7D01]" title="Profile">
                   <MenuItem
                     onClick={() => router.push("/my-account")}
                     label="My Account"
@@ -60,7 +79,7 @@ export const UserMenu = () => {
                   <MenuItem onClick={() => router.push("/cart")} label="Cart" />
                 </MenuGroup>
                 <MenuDivider />
-                <MenuGroup title="Listings">
+                <MenuGroup className="text-[#FD7D01]" title="Listings">
                   <MenuItem
                     onClick={() => router.push("/create-listing")}
                     label="Create Listing"
@@ -69,18 +88,36 @@ export const UserMenu = () => {
                     onClick={() => router.push("/my-listings")}
                     label="My Listings"
                   />
+                  <SignOutButton>
+                    <MenuItem
+                      onClick={() => router.push("/")}
+                      label="Sign Out"
+                    ></MenuItem>
+                  </SignOutButton>
                 </MenuGroup>
               </MenuList>
             </Menu>
           </>
         ) : (
           <>
-            <Link
-              className="ml-2 text-sm font-semibold py-3 px-4 rounded-full hover:bg-neutral-100 transition ease-in-out cursor-pointer"
-              href="/sign-in"
-            >
-              Sign In
-            </Link>
+            <div className="flex flex-row ">
+              {" "}
+              <Link
+                className=" text-sm font-semibold py-3 px-4 rounded-full hover:bg-neutral-100 transition ease-in-out cursor-pointer"
+                href="/sign-in"
+              >
+                Sign In
+              </Link>
+              <span className=" text-sm font-semibold  py-3 cursor-pointer">
+                or
+              </span>
+              <Link
+                className=" text-sm font-semibold py-3 px-4 rounded-full hover:bg-neutral-100 transition ease-in-out cursor-pointer"
+                href="/sign-up"
+              >
+                Register
+              </Link>
+            </div>
           </>
         )}
       </div>

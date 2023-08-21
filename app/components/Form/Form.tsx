@@ -1,5 +1,4 @@
 import {
-  Textarea,
   Select,
   NumberInput,
   NumberInputField,
@@ -10,6 +9,9 @@ import {
 } from "@chakra-ui/react";
 
 import Image from "next/image";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
 
 import React from "react";
 
@@ -39,62 +41,52 @@ export const Form = ({
           {" "}
           <form
             onSubmit={handleSubmit}
-            className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
+            className="bg-white shadow-md  rounded px-8 pt-6 pb-8 mb-4"
           >
             <div className="mb-4">
-              <label
-                className="block text-gray-700 text-sm font-bold mb-2"
-                htmlFor="title"
-              >
+              <Label className="" htmlFor="file-upload">
                 Title
-              </label>
-              <input
-                className="shadow border-[#FD7D01] appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              </Label>
+              <Input
+                className="shadow mt-2 border-black appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 id="title"
                 type="text"
-                placeholder=""
+                placeholder="Enter title"
                 onChange={(e) =>
                   setListings({ ...listings, title: e.target.value })
                 }
                 value={listings.title}
-              ></input>
+              />
             </div>
-            <div>
-              <label
-                className="block text-gray-700 text-sm font-bold mb-2"
-                htmlFor="description"
-              >
+            <div className="mb-4">
+              <Label className="" htmlFor="file-upload">
                 Description
-              </label>
+              </Label>
               <Textarea
-                className="mb-2"
+                required
+                className="mt-2 pb-20 border-black resize-none"
                 id="description"
                 value={listings.description}
                 onChange={(e) =>
                   setListings({ ...listings, description: e.target.value })
                 }
-                borderColor="[#FD7D01]"
-                focusBorderColor=""
                 typeof="text"
-                placeholder=""
-                size="sm"
-                resize={"none"}
+                placeholder="Enter description"
               />
             </div>
-            <div className="mb-6">
-              <label
-                className="block text-gray-700 text-sm font-bold mb-2"
-                htmlFor="category"
-              >
+            <div className="mb-4">
+              <Label className="" htmlFor="file-upload">
                 Category
-              </label>
+              </Label>
 
               <Select
+                className="mt-2"
                 bg="white"
                 borderColor="[#FD7D01]"
                 color="[#FD7D01]"
                 placeholder=""
                 value={listings.category}
+                required
                 onChange={(e) =>
                   setListings({ ...listings, category: e.target.value })
                 }
@@ -104,8 +96,14 @@ export const Form = ({
                 <option value="Technology">Technology</option>
               </Select>
             </div>
-            <div className="mb-6 ">
+            <div className="mb-4 ">
+              <Label className="mb-2" htmlFor="file-upload">
+                Price
+              </Label>
               <NumberInput
+                placeholder="$"
+                border={"black"}
+                isRequired
                 value={listings.price}
                 onChange={(e) => setListings({ ...listings, price: e })}
               >
@@ -117,20 +115,23 @@ export const Form = ({
               </NumberInput>
             </div>
             <div className="mb-6 flex">
-              <label htmlFor="file-upload" className="custom-file-upload">
-                Attach Image
-              </label>
-              <input
-                id="file-upload"
-                type="file"
-                accept="image/"
-                onChange={(e) =>
-                  setListings({
-                    ...listings,
-                    imageFile: e.target.files?.[0] || null,
-                  })
-                }
-              />
+              <div className="grid mb-6 w-full max-w-sm items-center gap-1.5">
+                <Label className="mb-2" htmlFor="file-upload">
+                  Attach Image
+                </Label>
+                <Input
+                  className="border-black"
+                  onChange={(e) =>
+                    setListings({
+                      ...listings,
+                      imageFile: e.target.files?.[0] || null,
+                    })
+                  }
+                  id="file-upload"
+                  type="file"
+                  accept="image/"
+                />
+              </div>
             </div>
             <div className="flex items-center justify-center">
               <button

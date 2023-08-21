@@ -1,8 +1,10 @@
+"use client";
+
 import { SignIn } from "@clerk/nextjs";
 
 export default function page() {
   return (
-    <div className="flex items-center justify-center">
+    <div className="flex items-center mt-52 justify-center">
       <SignIn
         signUpUrl="/sign-up"
         redirectUrl="/"
