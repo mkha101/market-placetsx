@@ -5,12 +5,11 @@ import React from "react";
 import { Filter } from "../components/Filter/Filter";
 import ListingsCard from "../components/ListingsCard";
 import { getToken } from "@chakra-ui/react";
-import ListingsContainer from "../components/ListingsContainer";
+import ListingsContainer from "../components/UserListingsContainer";
 import { useAuth } from "@clerk/nextjs";
+import AllListingsContainer from "../components/AllListingsContainer";
 
 export default function Page() {
-  const { userId, getToken } = useAuth();
-
   return (
     <main className="w-full  ">
       <Container>
@@ -21,7 +20,7 @@ export default function Page() {
           </div>
           <div className="w-3/4  flex flex-row flex-wrap gap-32 mt-10 ml-30 ">
             {" "}
-            <ListingsContainer userId={userId} getToken={getToken} />
+            <AllListingsContainer />
           </div>
         </div>
       </Container>

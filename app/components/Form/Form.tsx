@@ -14,6 +14,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 
 import React from "react";
+import { CldImage, CldUploadButton } from "next-cloudinary";
 
 export const Form = ({
   type,
@@ -30,9 +31,14 @@ export const Form = ({
 }) => {
   const toast = useToast();
 
+  const handleImageUpload = (resultEvent: any) => {
+    const imageUrl = resultEvent.info.secure_url;
+    setListings({ ...listings, image_url: imageUrl });
+  };
+
   return (
     <div className="w-full max-w-screen">
-      <div className="flex h-[80vh] mt-20 gap-28 flex-col justify-start items-center">
+      <div className="flex min-h-screen mt-20 gap-28 flex-col justify-start items-center">
         {" "}
         <div className="">
           <h1 className="text-4xl text-[#FD7D01] font-bold">Create Listing</h1>
@@ -119,18 +125,20 @@ export const Form = ({
                 <Label className="mb-2" htmlFor="file-upload">
                   Attach Image
                 </Label>
-                <Input
-                  className="border-black"
-                  onChange={(e) =>
-                    setListings({
-                      ...listings,
-                      imageFile: e.target.files?.[0] || null,
-                    })
-                  }
-                  id="file-upload"
-                  type="file"
-                  accept="image/"
+                <CldUploadButton
+                  uploadPreset="lnsjnwfp"
+                  onSuccess={handleImageUpload}
                 />
+                {listings.image_url && ( // Display the uploaded image if available
+                  <CldImage
+                    src={listings.image_url}
+                    width="100"
+                    height="100"
+                    crop="fill"
+                    gravity="auto"
+                    alt="Uploaded Image"
+                  />
+                )}{" "}
               </div>
             </div>
             <div className="flex items-center justify-center">

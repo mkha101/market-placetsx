@@ -17,6 +17,8 @@ const CreateListing = () => {
     title: "",
     description: "",
     category: "",
+    price: "",
+    image_url: "",
   });
 
   const createListing = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -30,9 +32,10 @@ const CreateListing = () => {
         console.error("User ID is null or undefined.");
         return;
       }
+      const updatedListings = { ...listings, image_url: listings.image_url };
 
       const posts = await postListing({ listings, userId, token });
-      setListings(listings);
+      setListings(updatedListings);
       if (listings) {
         router.push("/my-listings");
       }

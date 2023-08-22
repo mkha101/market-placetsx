@@ -22,6 +22,19 @@ export const getListings = async ({
   return listings;
 };
 
+export const getAllListings = async ({ token }: { token: string | null }) => {
+  const supabase = await supabaseClient(token);
+
+  const { data: listings, error } = await supabase.from("Listings").select("*");
+
+  if (error) {
+    console.error("Error fetching allListings:", error.message);
+    return [];
+  }
+
+  return listings;
+};
+
 export const postListing = async ({
   userId,
   token,
@@ -31,7 +44,7 @@ export const postListing = async ({
   token: string | null;
   listings: any;
 }) => {
-  const { title, description, category, price } = listings;
+  const { title, description, category, price, image_url } = listings;
 
   const supabase = await supabaseClient(token);
   const { data, error } = await supabase
@@ -42,6 +55,7 @@ export const postListing = async ({
       description,
       category,
       price,
+      image_url,
     })
     .select();
 

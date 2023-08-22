@@ -12,6 +12,7 @@ import {
 import React from "react";
 
 import Image from "next/image";
+import { CldImage } from "next-cloudinary";
 
 // Define a type/interface for the 'post' prop
 interface Post {
@@ -19,6 +20,8 @@ interface Post {
   title: string;
   description: string;
   category: string;
+  price: number;
+  image_url: string;
 }
 
 const ListingsCard: React.FC<{ post: Post }> = ({ post }) => {
@@ -28,18 +31,17 @@ const ListingsCard: React.FC<{ post: Post }> = ({ post }) => {
         <CardBody>
           <Stack mt="6" spacing="3">
             <Text>{post.category}</Text>
-
             <Heading size="md">{post.title}</Heading>
-            <Image
-              src="/iphone.jpeg"
-              alt="Green double couch with wooden legs"
+            <CldImage
+              src={post.image_url}
               width={300}
-              height={100}
-            />
+              height={300}
+              gravity="auto"
+              alt="Uploaded Image"
+            />{" "}
             <Text>{post.description}</Text>
-
             <Text color="blue.600" fontSize="2xl">
-              $450
+              {post.price}
             </Text>
           </Stack>
         </CardBody>

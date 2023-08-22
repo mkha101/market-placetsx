@@ -4,7 +4,7 @@ import { SignIn } from "@clerk/nextjs";
 
 export default function page() {
   return (
-    <div className="flex items-center mt-52 justify-center">
+    <div className="flex items-center mt-32 justify-center">
       <SignIn
         signUpUrl="/sign-up"
         redirectUrl="/"

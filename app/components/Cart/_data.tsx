@@ -1,6 +1,6 @@
 export const cartData = [
   {
-    id: "1",
+    id: {},
     price: 39.99,
     currency: "GBP",
     name: "Ferragamo bag",

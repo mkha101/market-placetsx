@@ -10,6 +10,7 @@ import { FiSettings } from "react-icons/fi";
 import { UserButton, useUser, currentUser, SignOutButton } from "@clerk/nextjs";
 import MenuItem from "./MenuItem";
 import { useRouter } from "next/navigation";
+import { Email, EmailAddress } from "@clerk/nextjs/api";
 
 import { useDisclosure } from "@chakra-ui/react";
 
@@ -25,7 +26,6 @@ import {
   MenuGroup,
   MenuList,
 } from "@chakra-ui/react";
-import router from "next/router";
 import { users } from "@clerk/nextjs/api";
 import { IoMdNotificationsOutline } from "react-icons/io";
 
@@ -33,7 +33,7 @@ export const UserMenu = () => {
   const router = useRouter();
   const { isOpen, onOpen, onClose } = useDisclosure();
 
-  const user = useUser();
+  const { isSignedIn, user } = useUser();
 
   return (
     <div className="relative">
@@ -54,9 +54,11 @@ export const UserMenu = () => {
             />
           </div>
         </div>
-        {user.isSignedIn ? (
+        {isSignedIn ? (
           <>
-            <h1 className="ml-2 text-sm font-semibold py-3 px-4  ">Hi,</h1>
+            <h1 className="ml-2 text-sm font-semibold py-3 px-4  ">
+              Hi, {user?.primaryEmailAddress?.emailAddress || "Guest"}
+            </h1>
             <Menu isOpen={isOpen} onClose={onClose}>
               <MenuButton onMouseEnter={onOpen} className="ml-3">
                 <Avatar

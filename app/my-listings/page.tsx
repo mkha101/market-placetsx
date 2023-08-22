@@ -5,7 +5,7 @@ import Container from "../components/Container";
 import { getListings } from "../../utils/requests";
 import { useAuth } from "@clerk/nextjs";
 import ListingsCard from "../components/ListingsCard";
-import ListingsContainer from "../components/ListingsContainer";
+import ListingsContainer from "../components/UserListingsContainer";
 
 const MyListings = () => {
   const { userId, getToken } = useAuth();
