@@ -13,8 +13,9 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 
-import React from "react";
+import React, { useEffect } from "react";
 import { CldImage, CldUploadButton } from "next-cloudinary";
+import { useUser } from "@clerk/nextjs";
 
 export const Form = ({
   type,
@@ -30,6 +31,16 @@ export const Form = ({
   handleSubmit: any;
 }) => {
   const toast = useToast();
+
+  const { user } = useUser(); // Use the useUser hook directly inside the component
+
+  useEffect(() => {
+    const emailAddress = user?.primaryEmailAddress?.emailAddress;
+    console.log(emailAddress);
+    if (emailAddress) {
+      setListings({ ...listings, email_address: emailAddress });
+    }
+  }, [user]);
 
   const handleImageUpload = (resultEvent: any) => {
     const imageUrl = resultEvent.info.secure_url;

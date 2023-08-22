@@ -4,7 +4,6 @@ import Container from "../components/Container";
 import React from "react";
 import { Filter } from "../components/Filter/Filter";
 import ListingsCard from "../components/ListingsCard";
-import { getToken } from "@chakra-ui/react";
 import ListingsContainer from "../components/UserListingsContainer";
 import { useAuth } from "@clerk/nextjs";
 import AllListingsContainer from "../components/AllListingsContainer";

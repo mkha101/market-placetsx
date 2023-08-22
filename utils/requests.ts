@@ -22,7 +22,9 @@ export const getListings = async ({
   return listings;
 };
 
-export const getAllListings = async ({ token }: { token: string | null }) => {
+export const getAllListings = async ({
+  token,
+}: { token?: string | null } = {}) => {
   const supabase = await supabaseClient(token);
 
   const { data: listings, error } = await supabase.from("Listings").select("*");
@@ -44,7 +46,8 @@ export const postListing = async ({
   token: string | null;
   listings: any;
 }) => {
-  const { title, description, category, price, image_url } = listings;
+  const { title, description, category, price, image_url, email_address } =
+    listings;
 
   const supabase = await supabaseClient(token);
   const { data, error } = await supabase
@@ -56,6 +59,7 @@ export const postListing = async ({
       category,
       price,
       image_url,
+      email_address,
     })
     .select();
 

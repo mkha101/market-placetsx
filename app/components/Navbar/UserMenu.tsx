@@ -10,7 +10,6 @@ import { FiSettings } from "react-icons/fi";
 import { UserButton, useUser, currentUser, SignOutButton } from "@clerk/nextjs";
 import MenuItem from "./MenuItem";
 import { useRouter } from "next/navigation";
-import { Email, EmailAddress } from "@clerk/nextjs/api";
 
 import { useDisclosure } from "@chakra-ui/react";
 

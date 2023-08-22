@@ -4,8 +4,8 @@ import React from "react";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { postListing } from "../../utils/requests";
-import { useAuth } from "@clerk/nextjs";
-import { Form } from "../components/Form/Form";
+import { useAuth, useUser } from "@clerk/nextjs";
+import { Form } from "../components/Form";
 
 const CreateListing = () => {
   const router = useRouter();
@@ -19,6 +19,7 @@ const CreateListing = () => {
     category: "",
     price: "",
     image_url: "",
+    email_address: "",
   });
 
   const createListing = async (e: React.FormEvent<HTMLFormElement>) => {

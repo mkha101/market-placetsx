@@ -4,15 +4,13 @@ import { getAllListings } from "../../utils/requests";
 import { useAuth } from "@clerk/nextjs";
 
 const AllListingsContainer = () => {
-  const { getToken } = useAuth();
   const [listings, setListings] = useState([]);
 
   useEffect(() => {
     const loadListings = async () => {
-      const token = await getToken({ template: "supabase" });
-
-      // Fetch all listings without specifying a userId
-      const data = await getAllListings({ token });
+      const data = await getAllListings({
+        token: process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
+      });
       setListings(data);
     };
     loadListings();

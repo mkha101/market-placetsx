@@ -13,6 +13,7 @@ import React from "react";
 
 import Image from "next/image";
 import { CldImage } from "next-cloudinary";
+import { useUser } from "@clerk/nextjs";
 
 // Define a type/interface for the 'post' prop
 interface Post {
@@ -22,9 +23,12 @@ interface Post {
   category: string;
   price: number;
   image_url: string;
+  email_address: string;
 }
 
 const ListingsCard: React.FC<{ post: Post }> = ({ post }) => {
+  const { user } = useUser();
+
   return (
     <div className="prompt_card" key={post.id}>
       <Card maxW="sm">
@@ -43,6 +47,7 @@ const ListingsCard: React.FC<{ post: Post }> = ({ post }) => {
             <Text color="blue.600" fontSize="2xl">
               {post.price}
             </Text>
+            <Text>Seller: {post.email_address}</Text>
           </Stack>
         </CardBody>
         <Divider />
