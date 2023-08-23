@@ -33,10 +33,10 @@ const CreateListing = () => {
         console.error("User ID is null or undefined.");
         return;
       }
-      const updatedListings = { ...listings, image_url: listings.image_url };
 
-      const posts = await postListing({ listings, userId, token });
-      setListings(updatedListings);
+      const postData = { ...listings, userId, image_url: listings.image_url };
+      const posts = await postListing({ listings: postData, userId, token });
+
       if (listings) {
         router.push("/my-listings");
       }

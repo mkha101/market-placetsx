@@ -32,7 +32,7 @@ export const Form = ({
 }) => {
   const toast = useToast();
 
-  const { user } = useUser(); // Use the useUser hook directly inside the component
+  const { user } = useUser();
 
   useEffect(() => {
     const emailAddress = user?.primaryEmailAddress?.emailAddress;
@@ -42,9 +42,26 @@ export const Form = ({
     }
   }, [user]);
 
-  const handleImageUpload = (resultEvent: any) => {
-    const imageUrl = resultEvent.info.secure_url;
-    setListings({ ...listings, image_url: imageUrl });
+  const handleUpload = async (file: any) => {
+    const formData = new FormData();
+    formData.append("file", file);
+    formData.append("upload_preset", "lnsjnwfp");
+
+    try {
+      const response = await fetch(
+        `https://api.cloudinary.com/v1_1/dps5hxns9/image/upload`,
+        {
+          method: "POST",
+          body: formData,
+        }
+      );
+      const data = await response.json();
+      const imageUrl = data.secure_url;
+
+      setListings({ ...listings, image_url: imageUrl });
+    } catch (error) {
+      console.error("Upload Error:", error);
+    }
   };
 
   return (
@@ -101,7 +118,7 @@ export const Form = ({
                 bg="white"
                 borderColor="[#FD7D01]"
                 color="[#FD7D01]"
-                placeholder=""
+                placeholder="Select"
                 value={listings.category}
                 required
                 onChange={(e) =>
@@ -118,7 +135,8 @@ export const Form = ({
                 Price
               </Label>
               <NumberInput
-                placeholder="$"
+                defaultValue={0}
+                precision={2}
                 border={"black"}
                 isRequired
                 value={listings.price}
@@ -136,20 +154,13 @@ export const Form = ({
                 <Label className="mb-2" htmlFor="file-upload">
                   Attach Image
                 </Label>
-                <CldUploadButton
-                  uploadPreset="lnsjnwfp"
-                  onSuccess={handleImageUpload}
+                <Input
+                  className="border-black"
+                  onChange={(e) => handleUpload(e.target.files?.[0])}
+                  id="file-upload"
+                  type="file"
+                  accept="image/"
                 />
-                {listings.image_url && ( // Display the uploaded image if available
-                  <CldImage
-                    src={listings.image_url}
-                    width="100"
-                    height="100"
-                    crop="fill"
-                    gravity="auto"
-                    alt="Uploaded Image"
-                  />
-                )}{" "}
               </div>
             </div>
             <div className="flex items-center justify-center">
