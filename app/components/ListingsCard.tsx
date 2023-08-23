@@ -36,16 +36,20 @@ const ListingsCard: React.FC<{ post: Post }> = ({ post }) => {
           <Stack mt="6" spacing="3">
             <Text>{post.category}</Text>
             <Heading size="md">{post.title}</Heading>
-            <CldImage
-              src={post.image_url}
-              width={300}
-              height={300}
-              gravity="auto"
-              alt="Uploaded Image"
-            />{" "}
+            <div className="w-52 h-22">
+              <CldImage
+                src={post.image_url}
+                width={300}
+                height={300}
+                crop="fill"
+                style={{ objectFit: "cover" }}
+                alt="Uploaded Image"
+              />{" "}
+            </div>
+
             <Text>{post.description}</Text>
             <Text color="blue.600" fontSize="2xl">
-              {post.price}
+              ${post.price}
             </Text>
             <Text>Seller: {post.email_address}</Text>
           </Stack>
