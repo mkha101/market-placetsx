@@ -46,7 +46,7 @@ const SearchByCategory = () => {
       </div>
       <div className="flex sm:hidden">
         <Select>
-          <SelectTrigger className="w-[180px] cursor-pointer rounded-full rounded-r-none  ">
+          <SelectTrigger className="w-[110px] cursor-pointer rounded-full rounded-r-none  ">
             <SelectValue placeholder="Category" />
           </SelectTrigger>
 
