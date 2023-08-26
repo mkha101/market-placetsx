@@ -8,7 +8,7 @@ export const Search = () => {
   return (
     <div className="flex flex-row justify-center items-center ">
       <SearchByCategory />
-      <div className="border-[1px] w-full  md:w-auto py-0.5 rounded-full shadow-sm hover:shadow-md transition ease-in-out cursor-pointer">
+      <div className="border-[1px] w-full  md:w-auto py-[1px] rounded-full rounded-l-none shadow-sm hover:shadow-md transition ease-in-out cursor-pointer">
         <div className="flex flex-row items-center justify-end">
           <div
             className=" hidden 
@@ -28,7 +28,7 @@ export const Search = () => {
             <HiOutlineLocationMarker />
             New York
           </div>
-          <div className="text-sm sm:w-auto w-full pl-6 p r-1 textgray-600 flex justify-between flex-row items-center gap-3">
+          <div className="text-sm sm:w-auto w-full pl-6 pr-1 textgray-600 flex justify-between flex-row items-center gap-3">
             <form action="submit">
               <input
                 className="h-[30px] sm:w-auto w-full border-none outline-none"

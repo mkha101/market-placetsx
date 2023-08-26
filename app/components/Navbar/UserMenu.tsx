@@ -47,7 +47,7 @@ export const UserMenu = () => {
         <div className="hidden sm:block">
           <div className="flex flex-row items-center justify-center gap-5">
             <Link
-              className="  text-sm text-[#FD7D01] font-semibold   rounded-full hover:bg-neutral-100 transition ease-in-out cursor-pointer"
+              className="  text-sm text-[#FD7D01] font-semibold    hover:text-black transition ease-in-out cursor-pointer"
               href="/products"
             >
               Products

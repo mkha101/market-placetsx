@@ -9,23 +9,76 @@ import {
 
 const SearchByCategory = () => {
   return (
-    <Select>
-      <SelectTrigger className="w-[180px] border-[1px] rounded-xl relative ">
-        <div className="hidden sm:block">
-          {" "}
-          <SelectValue placeholder="Search by Category" />
-        </div>
-        <div className="block sm:hidden">
-          {" "}
-          <SelectValue placeholder="Category" />
-        </div>{" "}
-      </SelectTrigger>
-      <SelectContent>
-        <SelectItem value="light">Clothing</SelectItem>
-        <SelectItem value="dark">Shoes</SelectItem>
-        <SelectItem value="system">Technology</SelectItem>
-      </SelectContent>
-    </Select>
+    <div>
+      <div className="hidden sm:flex">
+        <Select>
+          <SelectTrigger className="w-[180px] cursor-pointer rounded-full rounded-r-none ">
+            <SelectValue placeholder="Search by Category" />
+          </SelectTrigger>
+
+          <SelectContent>
+            <SelectItem className="cursor-pointer" value="Clothing">
+              Clothing
+            </SelectItem>
+            <SelectItem className="cursor-pointer" value="Shoes">
+              Shoes
+            </SelectItem>
+            <SelectItem className="cursor-pointer" value="Electronics">
+              Electronics
+            </SelectItem>
+            <SelectItem className="cursor-pointer" value="Home">
+              Home
+            </SelectItem>
+            <SelectItem className="cursor-pointer" value="Beauty">
+              Beauty
+            </SelectItem>
+            <SelectItem className="cursor-pointer" value="Health">
+              Health
+            </SelectItem>
+            <SelectItem className="cursor-pointer" value="Video Games">
+              Video Games
+            </SelectItem>
+            <SelectItem className="cursor-pointer" value="Books">
+              Books
+            </SelectItem>
+          </SelectContent>
+        </Select>
+      </div>
+      <div className="flex sm:hidden">
+        <Select>
+          <SelectTrigger className="w-[180px] cursor-pointer rounded-full rounded-r-none  ">
+            <SelectValue placeholder="Category" />
+          </SelectTrigger>
+
+          <SelectContent>
+            <SelectItem className="cursor-pointer" value="Clothing">
+              Clothing
+            </SelectItem>
+            <SelectItem className="cursor-pointer" value="Shoes">
+              Shoes
+            </SelectItem>
+            <SelectItem className="cursor-pointer" value="Electronics">
+              Electronics
+            </SelectItem>
+            <SelectItem className="cursor-pointer" value="Home">
+              Home
+            </SelectItem>
+            <SelectItem className="cursor-pointer" value="Beauty">
+              Beauty
+            </SelectItem>
+            <SelectItem className="cursor-pointer" value="Health">
+              Health
+            </SelectItem>
+            <SelectItem className="cursor-pointer" value="Video Games">
+              Video Games
+            </SelectItem>
+            <SelectItem className="cursor-pointer" value="Books">
+              Books
+            </SelectItem>
+          </SelectContent>
+        </Select>
+      </div>
+    </div>
   );
 };
 
