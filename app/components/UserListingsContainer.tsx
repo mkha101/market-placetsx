@@ -36,7 +36,7 @@ const ListingsContainer: React.FC<ListingsContainerProps> = ({}) => {
     loadListings();
   }, [userId]);
   return (
-    <div className="w-3/4 flex flex-row flex-wrap gap-10 mt-10 ml-40">
+    <div className="w-full flex flex-row justify-center sm:justify-start sm:ml-40 flex-wrap gap-10 mt-10 ">
       {listings.map((post) => (
         <ListingsCard key={post.id} post={post} />
       ))}

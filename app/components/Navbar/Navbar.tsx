@@ -16,7 +16,7 @@ export default function Navbar() {
     router.reload();
   };
   return (
-    <nav className="w-full bg-white z-10  ">
+    <nav className="w-full bg-white z-10 overflow-hidden  ">
       <div className="py-3 border-b-[1px]">
         <Container>
           <div className="flex flex-col flex-nowrap ">

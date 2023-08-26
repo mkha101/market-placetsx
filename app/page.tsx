@@ -4,9 +4,7 @@ import { Filter } from "./components/Filter/Filter";
 
 export default function Home() {
   return (
-    <main className="w-full  ">
-      <div className="w-full"> </div>
-
+    <main className="w-full max-w-screen  ">
       <Container>
         {" "}
         <div></div>
