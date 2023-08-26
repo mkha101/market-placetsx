@@ -9,7 +9,6 @@ import { Search } from "./Search";
 import { UserMenu } from "./UserMenu";
 import { Navigation } from "./Navigation";
 import router, { useRouter } from "next/router";
-import { List } from "./List";
 import SearchByCategory from "./SearchByCategory";
 
 export default function Navbar() {
@@ -39,17 +38,12 @@ export default function Navbar() {
                   </h1>
                 </Link>
               </div>
-              <div>
-                <SearchByCategory />
-              </div>
+
               <div className="hidden sm:block">
                 {" "}
                 <Search />
               </div>
-              <div>
-                {" "}
-                <List />
-              </div>
+              <div> </div>
 
               <div className="flex flex-row items-center justify-between gap-3 md:gap-0">
                 <UserMenu />

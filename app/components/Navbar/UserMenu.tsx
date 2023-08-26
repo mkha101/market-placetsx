@@ -7,7 +7,13 @@ import {
   AiOutlineShoppingCart,
 } from "react-icons/ai";
 import { FiSettings } from "react-icons/fi";
-import { UserButton, useUser, currentUser, SignOutButton } from "@clerk/nextjs";
+import {
+  UserButton,
+  useUser,
+  currentUser,
+  SignOutButton,
+  SignInButton,
+} from "@clerk/nextjs";
 import MenuItem from "./MenuItem";
 import { useRouter } from "next/navigation";
 
@@ -27,6 +33,7 @@ import {
 } from "@chakra-ui/react";
 import { users } from "@clerk/nextjs/api";
 import { IoMdNotificationsOutline } from "react-icons/io";
+import { AvatarImage, AvatarFallback } from "@radix-ui/react-avatar";
 
 export const UserMenu = () => {
   const router = useRouter();
@@ -39,6 +46,12 @@ export const UserMenu = () => {
       <div className="flex flex-row items-center gap-5 ">
         <div className="hidden sm:block">
           <div className="flex flex-row items-center justify-center gap-5">
+            <Link
+              className="  text-sm text-[#FD7D01] font-semibold   rounded-full hover:bg-neutral-100 transition ease-in-out cursor-pointer"
+              href="/products"
+            >
+              Products
+            </Link>{" "}
             <AiOutlineShoppingCart
               size={20}
               className="text-[#FD7D01] transition ease-in-out  cursor-pointer hover:text-black "
@@ -55,7 +68,7 @@ export const UserMenu = () => {
         </div>
         {isSignedIn ? (
           <>
-            <h1 className="ml-2 text-sm font-semibold py-3 px-4  ">
+            <h1 className="ml-2 hidden sm:display text-sm font-semibold py-3 px-4  ">
               Hi, {user?.primaryEmailAddress?.emailAddress || "Guest"}
             </h1>
             <Menu isOpen={isOpen} onClose={onClose}>
@@ -101,24 +114,28 @@ export const UserMenu = () => {
           </>
         ) : (
           <>
-            <div className="flex flex-row ">
-              {" "}
-              <Link
-                className=" text-sm font-semibold py-3 px-4 rounded-full hover:bg-neutral-100 transition ease-in-out cursor-pointer"
-                href="/sign-in"
+            <Menu isOpen={isOpen} onClose={onClose}>
+              <MenuButton onMouseEnter={onOpen} className="ml-3">
+                <Avatar
+                  colorScheme="whatsapp"
+                  className="cursor-pointer   border-solid border-4 hover:border-[#FD7D01]"
+                  name=""
+                  src=""
+                />
+              </MenuButton>
+              <MenuList
+                onMouseLeave={onClose}
+                onMouseEnter={onOpen}
+                className="cursor-pointer"
               >
-                Sign In
-              </Link>
-              <span className=" text-sm font-semibold  py-3 cursor-pointer">
-                or
-              </span>
-              <Link
-                className=" text-sm font-semibold py-3 px-4 rounded-full hover:bg-neutral-100 transition ease-in-out cursor-pointer"
-                href="/sign-up"
-              >
-                Register
-              </Link>
-            </div>
+                <MenuGroup className="text-[#FD7D01]" title="Profile">
+                  <MenuItem
+                    onClick={() => router.push("/sign-in")}
+                    label="Sign In"
+                  />
+                </MenuGroup>
+              </MenuList>
+            </Menu>
           </>
         )}
       </div>
