@@ -39,10 +39,9 @@ const ListingsCard: React.FC<{ post: Post }> = ({ post }) => {
             <div className="w-52 h-22">
               <CldImage
                 src={post.image_url}
-                width={300}
-                height={300}
-                crop="fill"
-                style={{ objectFit: "cover" }}
+                width={600}
+                height={600}
+                crop="pad"
                 alt="Uploaded Image"
               />{" "}
             </div>

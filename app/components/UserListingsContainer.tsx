@@ -2,10 +2,27 @@ import React, { useEffect, useState } from "react";
 import ListingsCard from "./ListingsCard"; // Adjust the import path
 import { getListings } from "../../utils/requests";
 import { useAuth } from "@clerk/nextjs";
+import { getToken } from "@chakra-ui/react";
 
-const ListingsContainer = () => {
+interface Post {
+  id: number;
+  title: string;
+  description: string;
+  category: string;
+  price: number;
+  image_url: string;
+  email_address: string;
+}
+
+interface ListingsContainerProps {
+  userId: string | null | undefined;
+  getToken: any;
+}
+
+const ListingsContainer: React.FC<ListingsContainerProps> = ({}) => {
   const { userId, getToken } = useAuth();
-  const [listings, setListings] = useState([]);
+
+  const [listings, setListings] = useState<Post[]>([]);
 
   useEffect(() => {
     const loadListings = async () => {
