@@ -71,7 +71,7 @@ export const UserMenu = () => {
             <h1 className="ml-2 hidden sm:display text-sm font-semibold py-3 px-4  ">
               Hi, {user?.primaryEmailAddress?.emailAddress || "Guest"}
             </h1>
-            <Menu isOpen={isOpen} onClose={onClose}>
+            <Menu preventOverflow isOpen={isOpen} onClose={onClose}>
               <MenuButton onMouseEnter={onOpen} className="ml-3">
                 <Avatar
                   colorScheme="whiteAlpha"
@@ -102,6 +102,8 @@ export const UserMenu = () => {
                     onClick={() => router.push("/my-listings")}
                     label="My Listings"
                   />
+                  <MenuDivider />
+
                   <SignOutButton>
                     <MenuItem
                       onClick={() => router.push("/")}
@@ -114,7 +116,7 @@ export const UserMenu = () => {
           </>
         ) : (
           <>
-            <Menu isOpen={isOpen} onClose={onClose}>
+            <Menu preventOverflow isOpen={isOpen} onClose={onClose}>
               <MenuButton onMouseEnter={onOpen} className="ml-3">
                 <Avatar
                   colorScheme="whatsapp"
