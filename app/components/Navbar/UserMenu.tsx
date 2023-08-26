@@ -95,6 +95,10 @@ export const UserMenu = () => {
                 <MenuDivider />
                 <MenuGroup className="text-[#FD7D01]" title="Listings">
                   <MenuItem
+                    onClick={() => router.push("/products")}
+                    label="Products"
+                  />
+                  <MenuItem
                     onClick={() => router.push("/create-listing")}
                     label="Create Listing"
                   />
