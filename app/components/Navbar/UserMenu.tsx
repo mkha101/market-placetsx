@@ -81,6 +81,7 @@ export const UserMenu = () => {
                 />
               </MenuButton>
               <MenuList
+                overflow={"hidden"}
                 onMouseLeave={onClose}
                 onMouseEnter={onOpen}
                 className="cursor-pointer"
