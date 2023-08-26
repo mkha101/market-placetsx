@@ -36,7 +36,7 @@ const ListingsCard: React.FC<{ post: Post }> = ({ post }) => {
           <Stack mt="6" spacing="3">
             <Text>{post.category}</Text>
             <Heading size="md">{post.title}</Heading>
-            <div className="w-52 h-22">
+            <div className="w-full h-auto">
               <CldImage
                 src={post.image_url}
                 width={600}
@@ -46,7 +46,7 @@ const ListingsCard: React.FC<{ post: Post }> = ({ post }) => {
               />{" "}
             </div>
 
-            <Text>{post.description}</Text>
+            <Text className="leading-loose">{post.description}</Text>
             <Text color="blue.600" fontSize="2xl">
               ${post.price}
             </Text>

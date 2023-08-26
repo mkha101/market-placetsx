@@ -17,7 +17,7 @@ export default function Page() {
             {" "}
             <Filter />
           </div>
-          <div className="sm:w-3/4   flex flex-row flex-wrap gap-32 mt-10 sm:ml-30 ">
+          <div className="sm:w-full   flex flex-row flex-wrap gap-32 mt-10 sm:ml-30 ">
             {" "}
             <AllListingsContainer />
           </div>

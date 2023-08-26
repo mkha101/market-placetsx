@@ -128,6 +128,7 @@ export const Form = ({
                 <option value="Clothing">Clothing</option>
                 <option value="Shoes">Shoes</option>
                 <option value="Technology">Technology</option>
+                <option value="Home">Home</option>
               </Select>
             </div>
             <div className="mb-4 ">

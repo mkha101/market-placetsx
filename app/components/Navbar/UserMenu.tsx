@@ -68,8 +68,9 @@ export const UserMenu = () => {
         </div>
         {isSignedIn ? (
           <>
-            <h1 className="ml-2 hidden sm:display text-sm font-semibold py-3 px-4  ">
-              Hi, {user?.primaryEmailAddress?.emailAddress || "Guest"}
+            <h1 className="ml-2 hidden sm:flex text-sm gap-1 font-semibold py-3 px-4  ">
+              <span className="text-[#FD7D01]">Hi, </span>
+              {user?.primaryEmailAddress?.emailAddress || "Guest"}
             </h1>
             <Menu preventOverflow isOpen={isOpen} onClose={onClose}>
               <MenuButton onMouseEnter={onOpen} className="ml-3">
