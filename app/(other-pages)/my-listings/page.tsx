@@ -1,11 +1,11 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import Container from "../components/Container";
-import { getListings } from "../../utils/requests";
+import Container from "../../components/Container";
+import { getListings } from "../../../utils/requests";
 import { useAuth } from "@clerk/nextjs";
-import ListingsCard from "../components/ListingsCard";
-import ListingsContainer from "../components/UserListingsContainer";
+import ListingsCard from "../../components/ListingsCard";
+import ListingsContainer from "../../components/UserListingsContainer";
 
 const MyListings = () => {
   const { userId, getToken } = useAuth();

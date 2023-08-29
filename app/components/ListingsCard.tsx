@@ -31,40 +31,38 @@ const ListingsCard: React.FC<{ post: Post }> = ({ post }) => {
 
   return (
     <div className="prompt_card" key={post.id}>
-      <Card maxW="sm">
-        <CardBody>
-          <Stack mt="6" spacing="3">
-            <Text>{post.category}</Text>
-            <Heading size="md">{post.title}</Heading>
-            <div className="w-full h-auto">
+      <div className="border-y-[1px] w-[75rem] p-3  rounded-none border-gray-200">
+        <div className="flex flex-row justify-between ">
+          <div className="flex flex-row gap-5">
+            <div className="w-[300px] h-[300px]  border rounded-lg bg-gray-100">
               <CldImage
                 src={post.image_url}
-                width={600}
-                height={600}
+                width={300}
+                height={300}
                 crop="pad"
                 alt="Uploaded Image"
-              />{" "}
+              />
             </div>
-
-            <Text className="leading-loose">{post.description}</Text>
-            <Text color="blue.600" fontSize="2xl">
-              ${post.price}
-            </Text>
-            <Text>Seller: {post.email_address}</Text>
-          </Stack>
-        </CardBody>
-        <Divider />
-        <CardFooter>
-          <ButtonGroup spacing="2">
-            <Button variant="solid" colorScheme="blue">
-              Buy now
-            </Button>
-            <Button variant="ghost" colorScheme="blue">
-              Add to cart
-            </Button>
-          </ButtonGroup>
-        </CardFooter>
-      </Card>
+            <div className="flex-col flex justify-between">
+              {" "}
+              <div>
+                {" "}
+                <h1 className="font-semibold text-lg">{post.title}</h1>
+                <p className="text-gray-600 text-sm">{post.category}</p>
+              </div>{" "}
+              <div>
+                {" "}
+                <span className="font-bold text-2xl">${post.price}</span>
+              </div>
+              <div></div>
+            </div>{" "}
+          </div>
+          <div className="flex-col flex items-center justify-center ">
+            <h3>Seller: {post.email_address}</h3>
+          </div>{" "}
+          <div></div>
+        </div>
+      </div>
     </div>
   );
 };

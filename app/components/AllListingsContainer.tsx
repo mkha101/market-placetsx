@@ -27,7 +27,7 @@ const AllListingsContainer = () => {
   }, []);
 
   return (
-    <div className="sm:w-3/4  justify-start sm:justify-start sm:ml-40 flex flex-row flex-wrap gap-10 mt-10 ">
+    <div className="  sm:ml-20   mt-10 ">
       {listings.map((post) => (
         <ListingsCard key={post.id} post={post} />
       ))}

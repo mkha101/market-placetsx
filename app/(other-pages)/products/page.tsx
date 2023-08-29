@@ -1,16 +1,16 @@
 "use client";
 
-import Container from "../components/Container";
+import Container from "../../components/Container";
 import React from "react";
-import { Filter } from "../components/Filter/Filter";
-import ListingsCard from "../components/ListingsCard";
-import ListingsContainer from "../components/UserListingsContainer";
+import { Filter } from "../../components/Filter/Filter";
+import ListingsCard from "../../components/ListingsCard";
+import ListingsContainer from "../../components/UserListingsContainer";
 import { useAuth } from "@clerk/nextjs";
-import AllListingsContainer from "../components/AllListingsContainer";
+import AllListingsContainer from "../../components/AllListingsContainer";
 
 export default function Page() {
   return (
-    <main className="w-full  ">
+    <main className="w-full h-[100vh]  ">
       <Container>
         <div className="flex row">
           <div className="">

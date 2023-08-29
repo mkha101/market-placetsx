@@ -28,7 +28,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "app/create-listing/page.jsx"
+    "app/(other-pages)/create-listing/page.jsx"
   ],
   "exclude": ["node_modules"]
 }

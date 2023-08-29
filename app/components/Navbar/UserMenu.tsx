@@ -15,7 +15,7 @@ import {
   SignInButton,
 } from "@clerk/nextjs";
 import MenuItem from "./MenuItem";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 import { useDisclosure } from "@chakra-ui/react";
 
@@ -41,34 +41,54 @@ export const UserMenu = () => {
 
   const { isSignedIn, user } = useUser();
 
+  const pathname = usePathname();
+
+  const textColorClass = pathname === "/" ? "white" : "black";
+
   return (
     <div className="relative">
-      <div className="flex flex-row items-center gap-5 ">
+      <div className="flex flex-row items-center pl-10 gap-5 ">
         <div className="hidden sm:block">
           <div className="flex flex-row items-center justify-center gap-5">
             <Link
-              className="  text-sm text-[#FD7D01] font-semibold    hover:text-black transition ease-in-out cursor-pointer"
-              href="/products"
+              className={`text-sm ${
+                textColorClass === "white" ? "text-white" : "text-black"
+              } font-semibold    hover:text-black transition ease-in-out cursor-pointer`}
+              href="/sign-up"
             >
-              Products
+              Sign Up
+            </Link>{" "}
+            <Link
+              className={`text-sm ${
+                textColorClass === "white" ? "text-white" : "text-black"
+              } font-semibold    hover:text-black transition ease-in-out cursor-pointer`}
+              href="/sign-in"
+            >
+              Login
             </Link>{" "}
             <AiOutlineShoppingCart
               size={20}
-              className="text-[#FD7D01] transition ease-in-out  cursor-pointer hover:text-black "
+              className={`text-sm ${
+                textColorClass === "white" ? "text-white" : "text-black"
+              }    hover:text-black transition ease-in-out cursor-pointer`}
             />
             <IoMdNotificationsOutline
               size={20}
-              className="text-[#FD7D01] transition ease-in-out  cursor-pointer hover:text-black "
+              className={`text-sm ${
+                textColorClass === "white" ? "text-white" : "text-black"
+              }    hover:text-black transition ease-in-out cursor-pointer`}
             />
             <AiOutlineMessage
               size={20}
-              className="text-[#FD7D01] transition ease-in-out   cursor-pointer hover:text-black "
+              className={`text-sm ${
+                textColorClass === "white" ? "text-white" : "text-black"
+              }    hover:text-black transition ease-in-out cursor-pointer`}
             />
           </div>
         </div>
         {isSignedIn ? (
           <>
-            <h1 className="ml-2 hidden sm:flex text-sm gap-1 font-semibold py-3 px-4  ">
+            <h1 className="ml-2 hidden xl:flex text-sm gap-1 font-semibold py-3 px-4  ">
               <span className="text-[#FD7D01]">Hi, </span>
               {user?.primaryEmailAddress?.emailAddress || "Guest"}
             </h1>
@@ -122,28 +142,18 @@ export const UserMenu = () => {
           </>
         ) : (
           <>
-            <Menu preventOverflow isOpen={isOpen} onClose={onClose}>
-              <MenuButton onMouseEnter={onOpen} className="ml-3">
-                <Avatar
-                  colorScheme="whatsapp"
-                  className="cursor-pointer   border-solid border-4 hover:border-[#FD7D01]"
-                  name=""
-                  src=""
-                />
-              </MenuButton>
-              <MenuList
-                onMouseLeave={onClose}
-                onMouseEnter={onOpen}
-                className="cursor-pointer"
-              >
-                <MenuGroup className="text-[#FD7D01]" title="Profile">
-                  <MenuItem
-                    onClick={() => router.push("/sign-in")}
-                    label="Sign In"
-                  />
-                </MenuGroup>
-              </MenuList>
-            </Menu>
+            <Link
+              className="  text-sm block sm:hidden text-[#FD7D01] font-semibold    hover:text-black transition ease-in-out cursor-pointer"
+              href="/sign-up"
+            >
+              Sign Up
+            </Link>{" "}
+            <Link
+              className="  text-sm block sm:hidden text-[#FD7D01] font-semibold    hover:text-black transition ease-in-out cursor-pointer"
+              href="/sign-in"
+            >
+              Login
+            </Link>{" "}
           </>
         )}
       </div>

@@ -3,11 +3,17 @@ import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import { Providers } from "./providers";
 import Head from "next/head";
+import { Lato } from "@next/font/google";
 
 export const metadata = {
   title: "InfinityTrade",
   description: "Shop and Sell",
 };
+
+const lato = Lato({
+  subsets: ["latin"],
+  weight: "700",
+});
 
 export default function RootLayout({
   children,
@@ -20,11 +26,8 @@ export default function RootLayout({
         <Head>
           <link rel="icon" href="/favicon.ico" />
         </Head>
-        <body className="">
-          <Providers>
-            <Navbar />
-            {children}
-          </Providers>
+        <body className={lato.className}>
+          <Providers>{children}</Providers>
         </body>
       </html>
     </ClerkProvider>

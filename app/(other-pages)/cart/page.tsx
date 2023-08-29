@@ -9,12 +9,12 @@ import {
   Stack,
   useColorModeValue as mode,
 } from "@chakra-ui/react";
-import { CartItem } from "../components/Cart/CartItem";
-import { CartOrderSummary } from "../components/Cart/CartorderSummary";
-import { cartData } from "../components/Cart/_data";
-import { getListings } from "../../utils/requests";
+import { CartItem } from "../../components/Cart/CartItem";
+import { CartOrderSummary } from "../../components/Cart/CartorderSummary";
+import { cartData } from "../../components/Cart/_data";
+import { getListings } from "../../../utils/requests";
 import { useAuth } from "@clerk/nextjs";
-import ListingsContainer from "../components/UserListingsContainer";
+import ListingsContainer from "../../components/UserListingsContainer";
 
 import { useState } from "react";
 

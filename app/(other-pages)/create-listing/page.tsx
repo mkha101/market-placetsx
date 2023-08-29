@@ -3,9 +3,9 @@
 import React from "react";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { postListing } from "../../utils/requests";
+import { postListing } from "../../../utils/requests";
 import { useAuth, useUser } from "@clerk/nextjs";
-import { Form } from "../components/Form";
+import { Form } from "../../components/Form";
 
 const CreateListing = () => {
   const router = useRouter();
