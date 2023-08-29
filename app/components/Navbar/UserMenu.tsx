@@ -52,7 +52,7 @@ export const UserMenu = () => {
           <div className="flex flex-row items-center justify-center gap-5">
             <Link
               className={`text-sm ${
-                textColorClass === "white" ? "text-white" : "text-black"
+                textColorClass === "white" ? "text-[#FDFEFF]" : "text-black"
               } font-semibold    hover:text-black transition ease-in-out cursor-pointer`}
               href="/sign-up"
             >
@@ -60,7 +60,7 @@ export const UserMenu = () => {
             </Link>{" "}
             <Link
               className={`text-sm ${
-                textColorClass === "white" ? "text-white" : "text-black"
+                textColorClass === "white" ? "text-[#FDFEFF]" : "text-black"
               } font-semibold    hover:text-black transition ease-in-out cursor-pointer`}
               href="/sign-in"
             >
@@ -69,19 +69,19 @@ export const UserMenu = () => {
             <AiOutlineShoppingCart
               size={20}
               className={`text-sm ${
-                textColorClass === "white" ? "text-white" : "text-black"
+                textColorClass === "white" ? "text-[#FDFEFF]" : "text-black"
               }    hover:text-black transition ease-in-out cursor-pointer`}
             />
             <IoMdNotificationsOutline
               size={20}
               className={`text-sm ${
-                textColorClass === "white" ? "text-white" : "text-black"
+                textColorClass === "white" ? "text-[#FDFEFF]" : "text-black"
               }    hover:text-black transition ease-in-out cursor-pointer`}
             />
             <AiOutlineMessage
               size={20}
               className={`text-sm ${
-                textColorClass === "white" ? "text-white" : "text-black"
+                textColorClass === "white" ? "text-[#FDFEFF]" : "text-black"
               }    hover:text-black transition ease-in-out cursor-pointer`}
             />
           </div>
@@ -89,7 +89,7 @@ export const UserMenu = () => {
         {isSignedIn ? (
           <>
             <h1 className="ml-2 hidden xl:flex text-sm gap-1 font-semibold py-3 px-4  ">
-              <span className="text-[#FD7D01]">Hi, </span>
+              <span className="text-[#FDFEFF]">Hi, </span>
               {user?.primaryEmailAddress?.emailAddress || "Guest"}
             </h1>
             <Menu preventOverflow isOpen={isOpen} onClose={onClose}>
@@ -143,13 +143,17 @@ export const UserMenu = () => {
         ) : (
           <>
             <Link
-              className="  text-sm block sm:hidden text-[#FD7D01] font-semibold    hover:text-black transition ease-in-out cursor-pointer"
+              className={`text-sm ${
+                textColorClass === "white" ? "text-[#FDFEFF]" : "text-black"
+              } font-semibold block sm:hidden   hover:text-black transition ease-in-out cursor-pointer`}
               href="/sign-up"
             >
               Sign Up
             </Link>{" "}
             <Link
-              className="  text-sm block sm:hidden text-[#FD7D01] font-semibold    hover:text-black transition ease-in-out cursor-pointer"
+              className={`text-sm ${
+                textColorClass === "white" ? "text-[#FDFEFF]" : "text-black"
+              } font-semibold  block sm:hidden     hover:text-black transition ease-in-out cursor-pointer`}
               href="/sign-in"
             >
               Login

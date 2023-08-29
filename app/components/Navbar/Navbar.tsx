@@ -41,7 +41,9 @@ export default function Navbar() {
                   {" "}
                   <h1
                     className={`font-bold ${
-                      textColorClass === "white" ? "text-white" : "text-black"
+                      textColorClass === "white"
+                        ? "text-[#FDFEFF]"
+                        : "text-black"
                     } sm:pr-10 text-xl`}
                   >
                     InfinityTrade
