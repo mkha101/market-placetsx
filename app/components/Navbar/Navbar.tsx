@@ -11,17 +11,17 @@ import { Navigation } from "./Navigation";
 import router, { useRouter } from "next/router";
 import SearchByCategory from "./SearchByCategory";
 import { usePathname } from "next/navigation";
-import { SignedIn, useUser } from "@clerk/nextjs";
+import { SignOutButton, SignedIn, useUser } from "@clerk/nextjs";
 
 export default function Navbar() {
   const handleRefresh = () => {
     router.reload();
   };
-  const { user } = useUser();
+  const { isSignedIn, user } = useUser();
 
   const pathname = usePathname();
 
-  const textColorClass = pathname === "/" ? "white" : "black";
+  const textColorClass = !isSignedIn && pathname === "/" ? "white" : "black";
 
   return (
     <nav className="w-full    ">
@@ -52,11 +52,16 @@ export default function Navbar() {
                   </h1>
                 </Link>
               </div>
-
-              <div className="hidden sm:block"> </div>
+              <SignedIn>
+                {" "}
+                <div className="hidden sm:block">
+                  <Search />
+                </div>
+              </SignedIn>
 
               <div className="flex flex-row items-center justify-between gap-3 md:gap-0">
                 <UserMenu />
+                <SignOutButton />
               </div>
             </div>
           </div>

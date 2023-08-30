@@ -42,12 +42,12 @@ export const UserMenu = () => {
   const router = useRouter();
   const { isOpen, onOpen, onClose } = useDisclosure();
 
-  const { user } = useUser();
+  const { isSignedIn, user } = useUser();
   const { signOut } = useClerk();
 
   const pathname = usePathname();
 
-  const textColorClass = pathname === "/" ? "white" : "black";
+  const textColorClass = !isSignedIn && pathname === "/" ? "white" : "black";
 
   return (
     <div className="relative">

@@ -1,6 +1,6 @@
 import Navbar from "./components/Navbar/Navbar";
 import "./globals.css";
-import { ClerkProvider } from "@clerk/nextjs";
+import { ClerkProvider, SignedIn } from "@clerk/nextjs";
 import { Providers } from "./providers";
 import Head from "next/head";
 import { Lato } from "@next/font/google";
@@ -28,9 +28,9 @@ export default function RootLayout({
         </Head>
         <body className={lato.className}>
           <Providers>
-            <div className="hidden">
+            <SignedIn>
               <Navbar />
-            </div>
+            </SignedIn>
             {children}
           </Providers>
         </body>
