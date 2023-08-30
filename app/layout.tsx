@@ -27,7 +27,12 @@ export default function RootLayout({
           <link rel="icon" href="/favicon.ico" />
         </Head>
         <body className={lato.className}>
-          <Providers>{children}</Providers>
+          <Providers>
+            <div className="hidden">
+              <Navbar />
+            </div>
+            {children}
+          </Providers>
         </body>
       </html>
     </ClerkProvider>

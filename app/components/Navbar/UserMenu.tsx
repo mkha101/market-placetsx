@@ -13,6 +13,9 @@ import {
   currentUser,
   SignOutButton,
   SignInButton,
+  SignedOut,
+  SignedIn,
+  useClerk,
 } from "@clerk/nextjs";
 import MenuItem from "./MenuItem";
 import { usePathname, useRouter } from "next/navigation";
@@ -39,7 +42,8 @@ export const UserMenu = () => {
   const router = useRouter();
   const { isOpen, onOpen, onClose } = useDisclosure();
 
-  const { isSignedIn, user } = useUser();
+  const { user } = useUser();
+  const { signOut } = useClerk();
 
   const pathname = usePathname();
 
@@ -50,22 +54,24 @@ export const UserMenu = () => {
       <div className="flex flex-row items-center pl-10 gap-5 ">
         <div className="hidden sm:block">
           <div className="flex flex-row items-center justify-center gap-5">
-            <Link
-              className={`text-sm ${
-                textColorClass === "white" ? "text-[#FDFEFF]" : "text-black"
-              } font-semibold    hover:text-black transition ease-in-out cursor-pointer`}
-              href="/sign-up"
-            >
-              Sign Up
-            </Link>{" "}
-            <Link
-              className={`text-sm ${
-                textColorClass === "white" ? "text-[#FDFEFF]" : "text-black"
-              } font-semibold    hover:text-black transition ease-in-out cursor-pointer`}
-              href="/sign-in"
-            >
-              Login
-            </Link>{" "}
+            <SignedOut>
+              <Link
+                className={`text-sm ${
+                  textColorClass === "white" ? "text-[#FDFEFF]" : "text-black"
+                } font-semibold    hover:text-black transition ease-in-out cursor-pointer`}
+                href="/sign-up"
+              >
+                Sign Up
+              </Link>{" "}
+              <Link
+                className={`text-sm ${
+                  textColorClass === "white" ? "text-[#FDFEFF]" : "text-black"
+                } font-semibold    hover:text-black transition ease-in-out cursor-pointer`}
+                href="/sign-in"
+              >
+                Login
+              </Link>{" "}
+            </SignedOut>
             <AiOutlineShoppingCart
               size={20}
               className={`text-sm ${
@@ -86,10 +92,16 @@ export const UserMenu = () => {
             />
           </div>
         </div>
-        {isSignedIn ? (
+        <SignedIn>
           <>
             <h1 className="ml-2 hidden xl:flex text-sm gap-1 font-semibold py-3 px-4  ">
-              <span className="text-[#FDFEFF]">Hi, </span>
+              <span
+                className={`text-sm ${
+                  textColorClass === "white" ? "text-[#FDFEFF]" : "text-black"
+                }    `}
+              >
+                Hi,{" "}
+              </span>
               {user?.primaryEmailAddress?.emailAddress || "Guest"}
             </h1>
             <Menu preventOverflow isOpen={isOpen} onClose={onClose}>
@@ -130,17 +142,13 @@ export const UserMenu = () => {
                   />
                   <MenuDivider />
 
-                  <SignOutButton>
-                    <MenuItem
-                      onClick={() => router.push("/")}
-                      label="Sign Out"
-                    ></MenuItem>
-                  </SignOutButton>
+                  <MenuItem onClick={() => router.push("/")} label="Sign Out" />
                 </MenuGroup>
               </MenuList>
             </Menu>
           </>
-        ) : (
+        </SignedIn>
+        <SignedOut>
           <>
             <Link
               className={`text-sm ${
@@ -159,7 +167,7 @@ export const UserMenu = () => {
               Login
             </Link>{" "}
           </>
-        )}
+        </SignedOut>
       </div>
     </div>
   );
