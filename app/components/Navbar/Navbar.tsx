@@ -42,8 +42,8 @@ export default function Navbar() {
                   <h1
                     className={`font-bold ${
                       textColorClass === "white"
-                        ? "text-[#FDFEFF]"
-                        : "text-black"
+                        ? "text-[#FDFEFF] hover:text-black"
+                        : "text-black hover:text-black"
                     } sm:pr-10 text-xl`}
                   >
                     InfinityTrade
@@ -51,10 +51,7 @@ export default function Navbar() {
                 </Link>
               </div>
 
-              <div className="hidden sm:block">
-                {" "}
-                <Search />
-              </div>
+              <div className="hidden sm:block"> </div>
               <div> </div>
 
               <div className="flex flex-row items-center justify-between gap-3 md:gap-0">
