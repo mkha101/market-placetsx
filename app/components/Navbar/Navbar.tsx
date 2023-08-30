@@ -11,11 +11,13 @@ import { Navigation } from "./Navigation";
 import router, { useRouter } from "next/router";
 import SearchByCategory from "./SearchByCategory";
 import { usePathname } from "next/navigation";
+import { SignedIn, useUser } from "@clerk/nextjs";
 
 export default function Navbar() {
   const handleRefresh = () => {
     router.reload();
   };
+  const { user } = useUser();
 
   const pathname = usePathname();
 
@@ -52,7 +54,6 @@ export default function Navbar() {
               </div>
 
               <div className="hidden sm:block"> </div>
-              <div> </div>
 
               <div className="flex flex-row items-center justify-between gap-3 md:gap-0">
                 <UserMenu />
@@ -61,6 +62,7 @@ export default function Navbar() {
           </div>
         </Container>
       </div>
+
       <div className="block sm:hidden"> </div>
     </nav>
   );

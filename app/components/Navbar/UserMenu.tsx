@@ -94,7 +94,7 @@ export const UserMenu = () => {
         </div>
         <SignedIn>
           <>
-            <h1 className="ml-2 hidden xl:flex text-sm gap-1 font-semibold py-3 px-4  ">
+            <h1 className="ml-2 hidden md:flex text-sm gap-1 font-semibold py-3 px-4  ">
               <span
                 className={`text-sm ${
                   textColorClass === "white" ? "text-[#FDFEFF]" : "text-black"

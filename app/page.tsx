@@ -46,7 +46,7 @@ export default function Home() {
           </div>
         </div>
       </Container>
-      <div className="min-h-[30rem] bg-white">
+      <div className="min-h-[30rem] block sm:hidden bg-white">
         <div className="flex flex-col justify-center items-center">
           <h1 className="text-xl mt-5">Top Brands</h1>
           <div className="flex flex-row text-black gap-6 mt-3">
