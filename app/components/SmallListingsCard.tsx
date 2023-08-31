@@ -18,22 +18,20 @@ export const SmallListingsCard: React.FC<{ post: Post }> = ({ post }) => {
   return (
     <div className="prompt_card" key={post.id}>
       {" "}
-      <Container>
-        <div className="flex flex-col justify center items-center gap-3">
-          {" "}
-          <div className="border-[1px] w-36 sm:w-44 sm:h-44  h-36 rounded-lg border-gray-200">
-            <CldImage
-              src={post.image_url}
-              width={300}
-              height={300}
-              crop="pad"
-              alt="Uploaded Image"
-            />
-          </div>
-          <h1 className="">{post.title}</h1>
-          <span className="">${post.price}</span>
+      <div className="flex flex-col justify center  items-center gap-3">
+        {" "}
+        <div className="border-[1px] w-36 sm:w-44 sm:h-44 cursor-pointer h-36 rounded-lg border-gray-200">
+          <CldImage
+            src={post.image_url}
+            width={300}
+            height={300}
+            crop="pad"
+            alt="Uploaded Image"
+          />
         </div>
-      </Container>
+        <h1 className="">{post.title}</h1>
+        <span className="">${post.price}</span>
+      </div>
     </div>
   );
 };
