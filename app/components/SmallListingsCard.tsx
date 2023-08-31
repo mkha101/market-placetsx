@@ -1,0 +1,36 @@
+import { useUser } from "@clerk/nextjs";
+import { CldImage } from "next-cloudinary";
+import React from "react";
+interface Post {
+  id: number;
+  title: string;
+  description: string;
+  category: string;
+  price: number;
+  image_url: string;
+  email_address: string;
+}
+
+export const SmallListingsCard: React.FC<{ post: Post }> = ({ post }) => {
+  const { user } = useUser();
+
+  return (
+    <div className="prompt_card" key={post.id}>
+      {" "}
+      <div className="flex flex-col justofy center items-center gap-3">
+        {" "}
+        <div className="border-[1px] w-44  h-44 rounded-lg border-gray-200">
+          <CldImage
+            src={post.image_url}
+            width={300}
+            height={300}
+            crop="pad"
+            alt="Uploaded Image"
+          />
+        </div>
+        <h1>{post.title}</h1>
+        <span className="">${post.price}</span>
+      </div>
+    </div>
+  );
+};

@@ -11,7 +11,7 @@ import { Navigation } from "./Navigation";
 import router, { useRouter } from "next/router";
 import SearchByCategory from "./SearchByCategory";
 import { usePathname } from "next/navigation";
-import { SignOutButton, SignedIn, useUser } from "@clerk/nextjs";
+import { SignOutButton, SignedIn, SignedOut, useUser } from "@clerk/nextjs";
 
 export default function Navbar() {
   const handleRefresh = () => {
@@ -61,10 +61,12 @@ export default function Navbar() {
               )}
               <div className="flex flex-row items-center justify-between gap-3 md:gap-0">
                 <UserMenu />
-                <button onClick={() => router.push("/")}>
-                  {" "}
-                  <SignOutButton />
-                </button>
+                <SignedIn>
+                  <button onClick={() => router.push("/")}>
+                    {" "}
+                    <SignOutButton />
+                  </button>
+                </SignedIn>
               </div>
             </div>
           </div>

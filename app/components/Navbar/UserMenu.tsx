@@ -150,22 +150,25 @@ export const UserMenu = () => {
         </SignedIn>
         <SignedOut>
           <>
-            <Link
-              className={`text-sm ${
-                textColorClass === "white" ? "text-[#FDFEFF]" : "text-black"
-              } font-semibold block sm:hidden   hover:text-black transition ease-in-out cursor-pointer`}
-              href="/sign-up"
-            >
-              Sign Up
-            </Link>{" "}
-            <Link
-              className={`text-sm ${
-                textColorClass === "white" ? "text-[#FDFEFF]" : "text-black"
-              } font-semibold  block sm:hidden     hover:text-black transition ease-in-out cursor-pointer`}
-              href="/sign-in"
-            >
-              Login
-            </Link>{" "}
+            <div className=" flex flex-row mr-4 gap-4">
+              {" "}
+              <Link
+                className={`text-sm ${
+                  textColorClass === "white" ? "text-[#FDFEFF]" : "text-black"
+                } font-semibold block sm:hidden   hover:text-black transition ease-in-out cursor-pointer`}
+                href="/sign-up"
+              >
+                Sign Up
+              </Link>{" "}
+              <Link
+                className={`text-sm ${
+                  textColorClass === "white" ? "text-[#FDFEFF]" : "text-black"
+                } font-semibold  block sm:hidden     hover:text-black transition ease-in-out cursor-pointer`}
+                href="/sign-in"
+              >
+                Login
+              </Link>{" "}
+            </div>
           </>
         </SignedOut>
       </div>
