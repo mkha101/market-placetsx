@@ -68,7 +68,9 @@ export default function Navbar() {
         </Container>
       </div>
 
-      <div className="block sm:hidden"> </div>
+      <div className="block sm:hidden">
+        <Search />{" "}
+      </div>
     </nav>
   );
 }
