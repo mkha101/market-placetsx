@@ -21,7 +21,7 @@ export default function Navbar() {
 
   const pathname = usePathname();
 
-  const showNavbar = isSignedIn && pathname !== "/";
+  const showNavbar = isSignedIn || pathname !== "/";
 
   const textColorClass = !isSignedIn && pathname === "/" ? "white" : "black";
 
@@ -61,16 +61,21 @@ export default function Navbar() {
               )}
               <div className="flex flex-row items-center justify-between gap-3 md:gap-0">
                 <UserMenu />
-                <SignOutButton />
+                <button onClick={() => router.push("/")}>
+                  {" "}
+                  <SignOutButton />
+                </button>
               </div>
             </div>
           </div>
         </Container>
       </div>
-
-      <div className="block sm:hidden">
-        <Search />{" "}
-      </div>
+      <SignedIn>
+        {" "}
+        <div className="block sm:hidden">
+          <Search />{" "}
+        </div>
+      </SignedIn>
     </nav>
   );
 }
