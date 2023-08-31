@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar/Navbar";
 import { Search } from "./components/Navbar/Search";
 import { Button } from "@/components/ui/button";
 import { SignedIn, SignedOut } from "@clerk/nextjs";
+import { ProductArea } from "./components/Home/ProductArea";
 
 export default function Home() {
   return (
@@ -47,37 +48,58 @@ export default function Home() {
             </div>
           </div>
         </Container>
-        <div className="min-h-[30rem] block sm:hidden bg-white">
-          <div className="flex flex-col justify-center items-center">
-            <h1 className="text-xl mt-5">Top Brands</h1>
-            <div className="flex flex-row text-black gap-6 mt-3">
-              <span className="">Apple</span> <span className=" ">Nike</span>
-              <span className="  ">Adidas</span>
-            </div>
-          </div>
+        <div className="block sm:hidden">
+          {" "}
+          <ProductArea />
         </div>
 
         <div className="bg-[#40244D] p-12   flex flex-col sm:flex-row justify-center gap-14 items-center">
           <div className="flex text-center flex-col text-[#FDFEFF] ">
             <h1 className="text-2xl ">Buy and Sell Almost Anything</h1>
             <p>
-              Shop and sell new, like-new, and preowned items. <br />
+              Shop and sell new, like-new, and preowned items. <br />{" "}
+              <Link
+                className={`text-lg 
+                   font-semibold underline   hover:text-black transition ease-in-out cursor-pointer`}
+                href="/sign-up"
+              >
+                Sign Up
+              </Link>{" "}
             </p>
           </div>
           <div className="flex text-center flex-col text-[#FDFEFF] ">
             <h1 className="text-2xl ">Goodbye clutter</h1>
             <p>
               Earn extra cash by selling unwanted gifts and items.
-              <br />
+              <br />{" "}
+              <Link
+                className={`text-lg 
+                   font-semibold underline   hover:text-black transition ease-in-out cursor-pointer`}
+                href="/sign-up"
+              >
+                List an Item
+              </Link>{" "}
             </p>
           </div>
           <div className="flex text-center flex-col text-[#FDFEFF]">
             <h1 className="text-2xl "> Save up to 70% off retail</h1>
             <p>
               Get access to exclusive promos & flash deals. <br />
+              <Link
+                className={`text-lg 
+                   font-semibold underline   hover:text-black transition ease-in-out cursor-pointer`}
+                href="/products"
+              >
+                Shop Deals
+              </Link>{" "}
             </p>
           </div>
         </div>
+        <div className="hidden sm:block">
+          {" "}
+          <ProductArea />
+        </div>
+
         <SignedIn>
           <main className="w-full max-w-screen"></main>
         </SignedIn>

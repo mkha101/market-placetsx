@@ -21,6 +21,8 @@ export default function Navbar() {
 
   const pathname = usePathname();
 
+  const showNavbar = isSignedIn || pathname !== "/";
+
   const textColorClass = !isSignedIn && pathname === "/" ? "white" : "black";
 
   return (
@@ -51,14 +53,12 @@ export default function Navbar() {
                     InfinityTrade
                   </h1>
                 </Link>
-              </div>
-              <SignedIn>
-                {" "}
+              </div>{" "}
+              {showNavbar && (
                 <div className="hidden sm:block">
                   <Search />
                 </div>
-              </SignedIn>
-
+              )}
               <div className="flex flex-row items-center justify-between gap-3 md:gap-0">
                 <UserMenu />
                 <SignOutButton />
