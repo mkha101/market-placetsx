@@ -1,3 +1,4 @@
+import { SignedOut } from "@clerk/nextjs";
 import Navbar from "../components/Navbar/Navbar";
 
 export default function OtherLayout({
@@ -7,7 +8,10 @@ export default function OtherLayout({
 }) {
   return (
     <section>
-      <Navbar />
+      <SignedOut>
+        {" "}
+        <Navbar />
+      </SignedOut>
 
       {children}
     </section>

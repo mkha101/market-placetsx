@@ -21,7 +21,7 @@ export default function Navbar() {
 
   const pathname = usePathname();
 
-  const showNavbar = isSignedIn || pathname !== "/";
+  const showNavbar = isSignedIn && pathname !== "/";
 
   const textColorClass = !isSignedIn && pathname === "/" ? "white" : "black";
 
