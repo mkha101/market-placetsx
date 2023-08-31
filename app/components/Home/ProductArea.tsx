@@ -24,7 +24,7 @@ export const ProductArea = () => {
         </div>
       </div>
       <div className="flex flex-col justify-center items-center">
-        <h1 className="text-xl sm:mt-10 mt-5">For You</h1>
+        <h1 className="text-xl sm:mt-10 mt-8">For You</h1>
         <div className="flex flex-row justify-center items-center text-black gap-6 mt-16">
           <SmallAllListingsContainer />
         </div>

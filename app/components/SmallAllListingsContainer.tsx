@@ -28,7 +28,7 @@ const SmallAllListingsContainer = () => {
   }, []);
 
   return (
-    <div className=" flex flex-row gap-4   ">
+    <div className=" flex flex-wrap sm:flex-nowrap justify-center items-center flex-row gap-4   ">
       {listings.map((post) => (
         <SmallListingsCard key={post.id} post={post} />
       ))}
