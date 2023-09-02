@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import Container from "./components/Container";
 import Link from "next/link";
@@ -6,6 +7,7 @@ import { Search } from "./components/Navbar/Search";
 import { Button } from "@/components/ui/button";
 import { SignedIn, SignedOut } from "@clerk/nextjs";
 import { ProductArea } from "./components/Home/ProductArea";
+import SmallAllListingsContainer from "./components/SmallAllListingsContainer";
 
 export default function Home() {
   return (
@@ -54,7 +56,7 @@ export default function Home() {
             <ProductArea />
           </div>
 
-          <div className="bg-[#40244D] p-12   flex flex-col sm:flex-row justify-center gap-14 items-center">
+          <div className="bg-[#40244D] p-12    flex flex-col sm:flex-row justify-center gap-14 items-center">
             <div className="flex text-center flex-col text-[#FDFEFF] ">
               <h1 className="text-2xl ">Buy and Sell Almost Anything</h1>
               <p>
@@ -103,7 +105,14 @@ export default function Home() {
         </main>{" "}
       </SignedOut>
       <SignedIn>
-        <main className="w-full max-w-screen"></main>
+        <main className="w-full max-w-screen">
+          <div className="flex flex-col justify-center items-center">
+            <h1 className="text-xl sm:mt-10 mt-8">For You</h1>
+            <div className="flex flex-row justify-center items-center text-black gap-6 mt-16">
+              <SmallAllListingsContainer />
+            </div>
+          </div>
+        </main>
       </SignedIn>
     </>
   );

@@ -11,10 +11,10 @@ export const TopBrandsCircle: React.FC<TopBrandsCircleProps> = ({
 }) => {
   return (
     <div className="flex flex-col justify-center items-center gap-3 ">
-      <div className="border  rounded-full h-36 w-36 overflow-hidden">
+      <div className="border  rounded-full w-20 h-20 sm:h-36 sm:w-36 overflow-hidden">
         <img
           src={imageSrc}
-          className="w-full h-full object-cover"
+          className="w-full cursor-pointer h-full object-cover"
           alt="Apple Logo"
         />
       </div>
