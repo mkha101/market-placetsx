@@ -37,13 +37,11 @@ export default function ProductPageContainer({
   }, [listingId]);
 
   return (
-    <main className="w-full max-w-screen">
-      <div className="flex flex-col justify-center items-center">
-        <div className="flex flex-row justify-center items-center text-black gap-6 mt-16">
-          {listing?.map((post) => (
-            <ProductPageCard key={post.id} post={post} />
-          ))}
-        </div>
+    <main className="">
+      <div className="">
+        {listing?.map((post) => (
+          <ProductPageCard key={post.id} post={post} />
+        ))}
       </div>
     </main>
   );
