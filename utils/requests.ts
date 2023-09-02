@@ -45,6 +45,28 @@ export const getProduct = async ({
   return listings;
 };
 
+//Function to search for products
+export const searchListings = async ({
+  token,
+  query,
+}: {
+  token?: string | null;
+  query: string;
+}) => {
+  const supabase = await supabaseClient(token);
+  const { data: listings, error } = await supabase
+    .from("Listings")
+    .select()
+    .textSearch("title", query);
+
+  if (error) {
+    console.error("Error fetching Listings:", error.message);
+    return []; // Return null instead of an empty array
+  }
+
+  return listings;
+};
+
 //Function to fetch all listings
 export const getAllListings = async ({
   token,

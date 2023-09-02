@@ -16,7 +16,6 @@ interface Post {
 
 const SmallAllListingsContainer = () => {
   const [listings, setListings] = useState<Post[]>([]);
-
   useEffect(() => {
     const loadListings = async () => {
       const data = await getAllListings({
