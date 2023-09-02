@@ -1,6 +1,6 @@
 import { supabaseClient } from "./supaBaseClient";
 
-// Function to fetch Listings from Supabase
+// Function to fetch user Listings from Supabase
 export const getListings = async ({
   userId,
   token,
@@ -22,6 +22,30 @@ export const getListings = async ({
   return listings;
 };
 
+//Function to get listing data based on post ID for product page
+export const getProduct = async ({
+  listingId, // This is the "listingId" from your URLs
+  token,
+}: {
+  listingId: string;
+  token: string | null;
+}) => {
+  const supabase = await supabaseClient(token);
+
+  const { data: listings, error } = await supabase
+    .from("Listings")
+    .select("*")
+    .eq("id", listingId); // This matches the "id" column in your database
+
+  if (error) {
+    console.error("Error fetching Listings:", error.message);
+    return []; // Return null instead of an empty array
+  }
+
+  return listings;
+};
+
+//Function to fetch all listings
 export const getAllListings = async ({
   token,
 }: { token?: string | null } = {}) => {
@@ -36,6 +60,8 @@ export const getAllListings = async ({
 
   return listings;
 };
+
+//Function to post listings
 
 export const postListing = async ({
   userId,

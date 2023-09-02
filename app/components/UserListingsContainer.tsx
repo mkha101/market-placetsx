@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import ListingsCard from "./ListingsCard"; // Adjust the import path
 import { getListings } from "../../utils/requests";
 import { useAuth } from "@clerk/nextjs";
-import { getToken } from "@chakra-ui/react";
 
 interface Post {
   id: number;

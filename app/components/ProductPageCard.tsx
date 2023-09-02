@@ -1,8 +1,7 @@
-import { useUser } from "@clerk/nextjs";
 import { CldImage } from "next-cloudinary";
-import React from "react";
-import Container from "./Container";
 import Link from "next/link";
+import React from "react";
+
 interface Post {
   id: number;
   title: string;
@@ -13,7 +12,7 @@ interface Post {
   email_address: string;
 }
 
-export const SmallListingsCard: React.FC<{ post: Post }> = ({ post }) => {
+export const ProductPageCard: React.FC<{ post: Post }> = ({ post }) => {
   return (
     <div className="md:px-5 lg:px-0 sm:py-7 py-5" key={post.id}>
       {" "}
