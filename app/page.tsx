@@ -13,7 +13,7 @@ export default function Home() {
   return (
     <>
       <SignedOut>
-        <main className="w-full bg-gradient-to-br overflow-hidden from-zinc-900 to-purple-400  bg-cover  max-w-screen   ">
+        <main className="w-full  bg-gradient-to-br overflow-hidden from-zinc-900 to-purple-400  bg-cover  max-w-screen   ">
           <Navbar />
           <Container>
             {" "}
@@ -105,10 +105,10 @@ export default function Home() {
         </main>{" "}
       </SignedOut>
       <SignedIn>
-        <main className="w-full max-w-screen">
+        <main className="w-full  max-w-screen">
           <div className="flex flex-col justify-center items-center">
             <h1 className="text-xl sm:mt-10 mt-8">For You</h1>
-            <div className="flex flex-row justify-center items-center text-black gap-6 mt-16">
+            <div className="flex flex-row justify-center  items-center text-black gap-6 mt-16">
               <SmallAllListingsContainer />
             </div>
           </div>
