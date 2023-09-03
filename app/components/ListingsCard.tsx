@@ -14,6 +14,7 @@ import React from "react";
 import Image from "next/image";
 import { CldImage } from "next-cloudinary";
 import { useUser } from "@clerk/nextjs";
+import Link from "next/link";
 
 // Define a type/interface for the 'post' prop
 interface Post {
@@ -35,13 +36,15 @@ const ListingsCard: React.FC<{ post: Post }> = ({ post }) => {
         <div className="flex flex-row justify-between ">
           <div className="flex flex-row gap-5">
             <div className="w-[300px] h-[300px]  border rounded-lg bg-gray-100">
-              <CldImage
-                src={post.image_url}
-                width={300}
-                height={300}
-                crop="pad"
-                alt="Uploaded Image"
-              />
+              <Link href={`/product-page/${post.id}`} passHref>
+                <CldImage
+                  src={post.image_url}
+                  width={300}
+                  height={300}
+                  crop="pad"
+                  alt="Uploaded Image"
+                />
+              </Link>
             </div>
             <div className="flex-col flex justify-between">
               {" "}

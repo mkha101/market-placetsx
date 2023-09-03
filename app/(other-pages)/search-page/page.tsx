@@ -3,6 +3,8 @@ import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { searchListings } from "@/utils/requests";
 import { SmallListingsCard } from "@/app/components/SmallListingsCard";
+import ListingsCard from "@/app/components/ListingsCard";
+import Container from "@/app/components/Container";
 
 interface Post {
   id: number;
@@ -45,18 +47,27 @@ const Results = () => {
     fetchResults();
   }, [query]);
 
+  const length = results.length;
+
   return (
-    <div>
-      <h1>Search Results</h1>
-      {isLoading && <p>Loading...</p>}
-      {error && <p>Error: {error}</p>}
-      {!isLoading && !error && (
-        <ul>
-          {results.map((result) => (
-            <SmallListingsCard key={result.id} post={result} />
-          ))}
-        </ul>
-      )}
+    <div className="w-full relative max-w-screen">
+      <Container>
+        <div className="absolute top-10">
+          <h1>
+            Search Results for <span className="text-blue-600">"{query}"</span>
+          </h1>
+          <p className="text-sm text-gray-400">Showing 1-{length} Results </p>
+          {isLoading && <p>Loading...</p>}
+          {error && <p>Error: {error}</p>}
+          {!isLoading && !error && (
+            <ul className="mt-10">
+              {results.map((result) => (
+                <ListingsCard key={result.id} post={result} />
+              ))}
+            </ul>
+          )}
+        </div>
+      </Container>
     </div>
   );
 };
