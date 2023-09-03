@@ -66,7 +66,7 @@ const Results = () => {
           {!isLoading && !error && (
             <ul className="mt-10">
               {results.map((result) => (
-                <div className="">
+                <div key={result.id} className="">
                   <div className="block sm:hidden">
                     {" "}
                     <MobileListingsCard key={result.id} post={result} />
