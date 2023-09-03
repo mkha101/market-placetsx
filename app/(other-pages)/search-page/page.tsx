@@ -11,6 +11,7 @@ interface Post {
   title: string;
   description: string;
   category: string;
+  condition: string;
   price: number;
   image_url: string;
   email_address: string;
@@ -54,11 +55,12 @@ const Results = () => {
       <Container>
         <div className="absolute top-10">
           <h1>
-            Search Results for <span className="text-blue-600">"{query}"</span>
+            Search Results for{" "}
+            <span className="text-blue-600">&quot;{query}&quot;</span>
           </h1>
           <p className="text-sm text-gray-400">Showing 1-{length} Results </p>
           {isLoading && <p>Loading...</p>}
-          {error && <p>Error: {error}</p>}
+          {error && <p>Error: &quot;{error}&quot;</p>}
           {!isLoading && !error && (
             <ul className="mt-10">
               {results.map((result) => (
