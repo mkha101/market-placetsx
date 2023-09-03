@@ -17,6 +17,7 @@ const CreateListing = () => {
     title: "",
     description: "",
     category: "",
+    condition: "",
     price: "",
     image_url: "",
     email_address: "",

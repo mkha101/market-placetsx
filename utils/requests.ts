@@ -94,8 +94,15 @@ export const postListing = async ({
   token: string | null;
   listings: any;
 }) => {
-  const { title, description, category, price, image_url, email_address } =
-    listings;
+  const {
+    title,
+    description,
+    category,
+    condition,
+    price,
+    image_url,
+    email_address,
+  } = listings;
 
   const supabase = await supabaseClient(token);
   const { data, error } = await supabase
@@ -105,6 +112,7 @@ export const postListing = async ({
       title,
       description,
       category,
+      condition,
       price,
       image_url,
       email_address,

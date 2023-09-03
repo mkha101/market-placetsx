@@ -9,6 +9,8 @@ interface Post {
   title: string;
   description: string;
   category: string;
+  condition: string;
+
   price: number;
   image_url: string;
   email_address: string;

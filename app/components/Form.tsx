@@ -131,6 +131,30 @@ export const Form = ({
                 <option value="Home">Home</option>
               </Select>
             </div>
+            <div className="mb-4">
+              <Label className="" htmlFor="file-upload">
+                Condition
+              </Label>
+
+              <Select
+                className="mt-2"
+                bg="white"
+                borderColor="[#FD7D01]"
+                color="[#FD7D01]"
+                placeholder="Select"
+                value={listings.condition}
+                required
+                onChange={(e) =>
+                  setListings({ ...listings, condition: e.target.value })
+                }
+              >
+                <option value="New">New</option>
+                <option value="Like New">Like New</option>
+                <option value="Good">Good</option>
+                <option value="fair">Fair</option>
+                <option value="Poor">Poor</option>
+              </Select>
+            </div>
             <div className="mb-4 ">
               <Label className="mb-2" htmlFor="file-upload">
                 Price
