@@ -10,6 +10,7 @@ const Container = ({ children }: { children: ReactNode }) => {
       md:px-10
       sm:px-2
       px-4
+      overflow-hidden
     "
     >
       {children}

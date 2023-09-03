@@ -3,7 +3,9 @@ import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { searchListings } from "@/utils/requests";
 import { SmallListingsCard } from "@/app/components/SmallListingsCard";
-import ListingsCard from "@/app/components/ListingsCard";
+import ListingsCard, {
+  MobileListingsCard,
+} from "@/app/components/ListingsCard";
 import Container from "@/app/components/Container";
 
 interface Post {
@@ -51,9 +53,9 @@ const Results = () => {
   const length = results.length;
 
   return (
-    <div className="w-full relative max-w-screen">
+    <div className="w-full  sm:relative max-w-screen">
       <Container>
-        <div className="absolute top-10">
+        <div className="sm:absolute mt-10 sm:mt-0 sm:flex-none sm:justify-normal flex justify-center sm:items-start items-center flex-col sm:top-10">
           <h1>
             Search Results for{" "}
             <span className="text-blue-600">&quot;{query}&quot;</span>
@@ -64,7 +66,16 @@ const Results = () => {
           {!isLoading && !error && (
             <ul className="mt-10">
               {results.map((result) => (
-                <ListingsCard key={result.id} post={result} />
+                <div className="">
+                  <div className="block sm:hidden">
+                    {" "}
+                    <MobileListingsCard key={result.id} post={result} />
+                  </div>{" "}
+                  <div className="hidden sm:block">
+                    {" "}
+                    <ListingsCard key={result.id} post={result} />
+                  </div>{" "}
+                </div>
               ))}
             </ul>
           )}

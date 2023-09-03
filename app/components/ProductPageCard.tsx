@@ -17,7 +17,7 @@ interface Post {
 
 export const ProductPageCard: React.FC<{ post: Post }> = ({ post }) => {
   return (
-    <div className="w-full max-w-screen" key={post.id}>
+    <div className="w-full h-[120vh] max-w-screen" key={post.id}>
       <div className="flex sm:flex-row flex-col  justify-center gap-14 p-5 sm:mr-28  ">
         <div className="border-[1px]   max-w-screen  sm:mt-24 sm:w-[40rem] sm:h-[40rem] cursor-pointer  rounded-lg border-gray-200">
           <CldImage
