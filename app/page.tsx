@@ -13,7 +13,7 @@ export default function Home() {
   return (
     <>
       <SignedOut>
-        <main className="w-full custom-gradient   overflow-hidden   max-w-screen   ">
+        <main className="w-full custom-gradient sm:bg-[length:55rem_55rem] bg-[length:30rem_30rem]  overflow-hidden   max-w-screen   ">
           <Navbar />
           <Container>
             {" "}
