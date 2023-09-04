@@ -12,11 +12,11 @@ const SearchByCategory = () => {
     <div>
       <div className="hidden sm:flex">
         <Select>
-          <SelectTrigger className="w-[225px] p-[18px] text-[#E0AD9A] bg-white cursor-pointer rounded-full  rounded-r-none ">
+          <SelectTrigger className="w-[225px] p-[18px]  text-[#E0AD9A] bg-white cursor-pointer rounded-full  rounded-r-none ">
             <SelectValue placeholder="Search by Category" />
           </SelectTrigger>
 
-          <SelectContent>
+          <SelectContent className="">
             <SelectItem className="cursor-pointer" value="Clothing">
               Clothing
             </SelectItem>

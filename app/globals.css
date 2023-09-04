@@ -95,4 +95,8 @@
     #d0958f
   );
   background-size: 55rem 55rem; /* Ensures the gradient covers the entire element */
+
+  @media (max-width: 768px) {
+    background-size: 30rem 30rem; /* Set the background size for mobile devices */
+  }
 }
