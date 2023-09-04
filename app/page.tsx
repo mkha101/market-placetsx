@@ -13,7 +13,7 @@ export default function Home() {
   return (
     <>
       <SignedOut>
-        <main className="w-full  bg-gradient-to-br overflow-hidden from-zinc-900 to-purple-400  bg-cover  max-w-screen   ">
+        <main className="w-full custom-gradient   overflow-hidden   max-w-screen   ">
           <Navbar />
           <Container>
             {" "}
@@ -30,19 +30,19 @@ export default function Home() {
                     {" "}
                     <Button
                       size={"sm"}
-                      className="border bg-purple-900 px-6 sm:px-[75px] rounded-full "
+                      className="border bg-[#E0AD9A] px-6 sm:px-[75px] rounded-full "
                     >
                       Video Games
                     </Button>
                     <Button
                       size={"sm"}
-                      className="border bg-purple-900 px-6  rounded-full "
+                      className="border bg-[#E0AD9A] px-6  rounded-full "
                     >
                       Sneakers
                     </Button>
                     <Button
                       size={"sm"}
-                      className="border bg-purple-900 px-6  rounded-full "
+                      className="border bg-[#E0AD9A] px-6  rounded-full "
                     >
                       Furniture
                     </Button>
@@ -56,7 +56,7 @@ export default function Home() {
             <ProductArea />
           </div>
 
-          <div className="bg-[#40244D] p-12    flex flex-col sm:flex-row justify-center gap-14 items-center">
+          <div className="bg-[#E0AD9A] p-12    flex flex-col sm:flex-row justify-center gap-14 items-center">
             <div className="flex text-center flex-col text-[#FDFEFF] ">
               <h1 className="text-2xl ">Buy and Sell Almost Anything</h1>
               <p>

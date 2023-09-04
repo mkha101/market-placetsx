@@ -13,7 +13,7 @@ export const ProductArea = () => {
   const { userId, getToken } = useAuth();
 
   return (
-    <div className="sm:min-h-[70rem]  min-h-[95rem]  bg-white">
+    <div className="sm:min-h-[70rem] bg-cover  bg-white min-h-[95rem]  ">
       <div className="flex flex-col justify-center items-center">
         <h1 className="text-xl sm:mt-10 mt-5">Top Selling Brands</h1>
         <div className="flex flex-row text-black gap-6 mt-16">

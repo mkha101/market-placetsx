@@ -74,3 +74,25 @@
     @apply bg-background text-foreground;
   }
 }
+
+.custom-gradient {
+  background-image: linear-gradient(
+    to bottom,
+    #86a4c8,
+    #94adcb,
+    #9bb0cd,
+    #9eb3ce,
+    #a6b6d0,
+    #a7b8d2,
+    #b0bcd2,
+    #bac1d3,
+    #cec9cf,
+    #d0cacc,
+    #dbcac3,
+    #e2c2b3,
+    #e2b9a8,
+    #e4af9d,
+    #d0958f
+  );
+  background-size: 55rem 55rem; /* Ensures the gradient covers the entire element */
+}

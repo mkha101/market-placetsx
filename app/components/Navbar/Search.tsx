@@ -37,7 +37,7 @@ export const Search = () => {
                 value={text}
               />
             </form>
-            <div className="p-1.5 pl-4 pr-4 flex items-center gap-1 hover:text-black  rounded-full text-purple-900">
+            <div className="p-1.5 pl-4 pr-4 flex items-center gap-1 hover:text-black  rounded-full text-[#E0AD9A]">
               <BiSearch size={22} />
             </div>
           </div>
