@@ -18,7 +18,7 @@ export const ProductArea = () => {
         <h1 className="text-xl text-[#E0AD9A] sm:mt-10 mt-5">
           Top Selling Brands
         </h1>
-        <div className="flex flex-row text-black gap-6 mt-16">
+        <div className="flex flex-row text-black gap-6 mt-10">
           <TopBrandsCircle imageSrc="/applee.png" brandName="Apple" />
           <TopBrandsCircle imageSrc="/Nike.jpeg" brandName="Nike" />
           <TopBrandsCircle imageSrc="/Sony.png" brandName="Sony" />
