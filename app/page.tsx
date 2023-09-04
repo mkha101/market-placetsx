@@ -20,7 +20,7 @@ export default function Home() {
             <div className="min-h-[26rem] lg:min-h-[40rem]  2xl:xl:min-h-[50rem] relative ">
               <div className="sm:top-24 bottom-24 sm:left-10 left-1 absolute text-[#FDFEFF]">
                 <div className="flex flex-col gap-4">
-                  <h1 className="sm:text-6xl sm:w-[26rem] text-3xl font-extrabold">
+                  <h1 className="sm:text-6xl w-[13rem] sm:w-[26rem] text-3xl font-extrabold">
                     Discover Your Next Purchase
                   </h1>
                   <div className="text-black">
