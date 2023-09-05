@@ -25,6 +25,7 @@ export default function RootLayout({
       <html lang="en">
         <Head>
           <link rel="icon" href="/favicon.ico" />
+          <meta content="width=device-width, initial-scale=1" name="viewport" />
         </Head>
         <body className={lato.className}>
           <Providers>

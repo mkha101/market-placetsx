@@ -40,7 +40,7 @@ export const Search = () => {
             >
               <input
                 autoFocus
-                className="h-[30px] sm:w-auto w-full border-none outline-none"
+                className="h-[30px] text-base sm:w-auto w-full border-none outline-none"
                 type="text"
                 onChange={(e) => setText(e.target.value)}
                 value={text}
