@@ -74,7 +74,7 @@ export default function Navbar() {
       </div>
       <SignedIn>
         {" "}
-        <div className="block sm:hidden">
+        <div className="block mt-4 px-4 sm:hidden">
           <Search />{" "}
         </div>
       </SignedIn>

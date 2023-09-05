@@ -27,7 +27,7 @@ export const Search = () => {
   };
 
   return (
-    <div className="flex flex-row justify-center items-center ">
+    <div className="flex flex-row justify-center  items-center ">
       <SearchByCategory />
       <div className="border-[1px] w-full  md:w-auto py-[1px] rounded-full bg-white rounded-l-none shadow-sm hover:shadow-md transition ease-in-out cursor-pointer">
         <div className="flex flex-row items-center justify-end">
