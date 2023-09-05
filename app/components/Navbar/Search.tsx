@@ -11,13 +11,21 @@ import { useDebounce } from "use-debounce";
 export const Search = () => {
   const router = useRouter();
   const [text, setText] = useState("");
-  const [query] = useDebounce(text, 500);
+  const [query] = useDebounce(text, 100);
 
   const handleSearch = () => {
     if (query) {
       router.push(`/search-page?query=${encodeURIComponent(query)}`);
     }
   };
+
+  const handleKeyPress = (e: any) => {
+    if (e.key === "Enter") {
+      e.preventDefault(); // Prevent form submission
+      handleSearch();
+    }
+  };
+
   return (
     <div className="flex flex-row justify-center items-center ">
       <SearchByCategory />
@@ -31,10 +39,12 @@ export const Search = () => {
               }}
             >
               <input
+                autoFocus
                 className="h-[30px] sm:w-auto w-full border-none outline-none"
                 type="text"
                 onChange={(e) => setText(e.target.value)}
                 value={text}
+                onKeyDown={handleKeyPress}
               />
             </form>
             <div className="p-1.5 pl-4 pr-4 flex items-center gap-1 hover:text-black  rounded-full text-[#E0AD9A]">
