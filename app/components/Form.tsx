@@ -66,7 +66,7 @@ export const Form = ({
 
   return (
     <div className="w-full max-w-screen">
-      <div className="flex min-h-screen mt-20 gap-28 flex-col justify-start items-center">
+      <div className="flex min-h-screen mt-20 gap-6 flex-col justify-start items-center">
         {" "}
         <div className="">
           <h1 className="text-4xl text-[#FD7D01] font-bold">Create Listing</h1>

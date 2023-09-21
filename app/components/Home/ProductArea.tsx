@@ -15,9 +15,7 @@ export const ProductArea = () => {
   return (
     <div className="sm:min-h-[70rem] bg-cover  bg-white min-h-[95rem]  ">
       <div className="flex flex-col justify-center items-center">
-        <h1 className="text-xl text-[#E0AD9A] sm:mt-10 mt-5">
-          Top Selling Brands
-        </h1>
+        <h1 className="text-xl text-black sm:mt-10 mt-5">Top Selling Brands</h1>
         <div className="flex flex-row text-black gap-6 mt-10">
           <TopBrandsCircle imageSrc="/applee.png" brandName="Apple" />
           <TopBrandsCircle imageSrc="/Nike.jpeg" brandName="Nike" />
@@ -26,7 +24,7 @@ export const ProductArea = () => {
         </div>
       </div>
       <div className="flex flex-col justify-center items-center">
-        <h1 className="text-xl text-[#E0AD9A] sm:mt-10 mt-8">Trending</h1>
+        <h1 className="text-xl text-black sm:mt-10 mt-8">Trending</h1>
         <div className="flex flex-row justify-center  items-center text-black gap-6 ">
           <SmallAllListingsContainer />
         </div>

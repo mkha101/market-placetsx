@@ -75,9 +75,9 @@ export const MobileListingsCard: React.FC<{ post: Post }> = ({ post }) => {
   return (
     <div className="block sm:hidden">
       {" "}
-      <div className=" px-10 py-5" key={post.id}>
+      <div className="  py-5" key={post.id}>
         {" "}
-        <div className="border-[1px]    cursor-pointer  rounded-lg border-gray-200">
+        <div className="border-[1px] max-w-screen w-full   cursor-pointer  rounded-lg border-gray-200">
           {" "}
           <div className="flex flex-col   justify-center  gap-2">
             <Link href={`/product-page/${post.id}`} passHref>

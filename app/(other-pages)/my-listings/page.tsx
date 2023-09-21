@@ -6,6 +6,7 @@ import { getListings } from "../../../utils/requests";
 import { useAuth } from "@clerk/nextjs";
 import ListingsCard from "../../components/ListingsCard";
 import ListingsContainer from "../../components/UserListingsContainer";
+import SmallUserListingsContainer from "@/app/components/SmallUserListingsContainer";
 
 const MyListings = () => {
   const { userId, getToken } = useAuth();
@@ -16,7 +17,14 @@ const MyListings = () => {
         <div className="text-center flex flex-col gap-5">
           <h1 className="text-4xl text-[#FD7D01] font-bold">My Listings</h1>
         </div>
-        <ListingsContainer userId={userId} getToken={getToken} />
+        <div className="sm:hidden block">
+          {" "}
+          <SmallUserListingsContainer userId={userId} getToken={getToken} />
+        </div>{" "}
+        <div className="hidden sm:block">
+          {" "}
+          <ListingsContainer userId={userId} getToken={getToken} />
+        </div>{" "}
       </div>
     </div>
   );

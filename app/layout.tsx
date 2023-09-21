@@ -3,7 +3,7 @@ import "./globals.css";
 import { ClerkProvider, SignedIn } from "@clerk/nextjs";
 import { Providers } from "./providers";
 import Head from "next/head";
-import { Lato } from "@next/font/google";
+import { Inter, Lato } from "@next/font/google";
 
 export const metadata = {
   title: "InfinityTrade",
@@ -13,6 +13,10 @@ export const metadata = {
 const lato = Lato({
   subsets: ["latin"],
   weight: "700",
+});
+
+const inter = Inter({
+  subsets: ["latin"],
 });
 
 export default function RootLayout({
