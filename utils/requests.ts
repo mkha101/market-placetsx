@@ -24,7 +24,7 @@ export const getListings = async ({
 
 //Function to get listing data based on post ID for product page
 export const getProduct = async ({
-  listingId, // This is the "listingId" from your URLs
+  listingId,
   token,
 }: {
   listingId: string;
@@ -35,11 +35,11 @@ export const getProduct = async ({
   const { data: listings, error } = await supabase
     .from("Listings")
     .select("*")
-    .eq("id", listingId); // This matches the "id" column in your database
+    .eq("id", listingId);
 
   if (error) {
     console.error("Error fetching Listings:", error.message);
-    return []; // Return null instead of an empty array
+    return [];
   }
 
   return listings;
@@ -49,14 +49,17 @@ export const getProduct = async ({
 export const searchListings = async ({
   token,
   query,
+  category,
 }: {
   token?: string | null;
   query: string;
+  category?: string | null;
 }) => {
   const supabase = await supabaseClient(token);
   const { data: listings, error } = await supabase
     .from("Listings")
     .select()
+    .eq("category", category)
     .textSearch("title", query);
 
   if (error) {

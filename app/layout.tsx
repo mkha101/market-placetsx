@@ -3,7 +3,7 @@ import "./globals.css";
 import { ClerkProvider, SignedIn } from "@clerk/nextjs";
 import { Providers } from "./providers";
 import Head from "next/head";
-import { Inter, Lato } from "@next/font/google";
+import { Inter, Lato } from "next/font/google";
 
 export const metadata = {
   title: "InfinityTrade",
